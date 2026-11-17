@@ -1,0 +1,13 @@
+# Google service account key: never commit
+service-account.json
+*service-account*.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Editor / OS
+.vscode/
+.DS_Store
+Thumbs.db
