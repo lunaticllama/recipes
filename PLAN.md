@@ -1,6 +1,6 @@
 # Phil's Recipes: Plan
 
-**Status:** Step 1 done (repo created and cloned). Next: Step 2.
+**Status:** Step 2 done (parser, tests and sync script written; `data/recipes.json` built from the real doc, 117 recipes). Next: Step 3. Phil is fixing the flagged recipes (Braised Lamb Shanks, Pumpkin Ravioli, Tzatziki Sauce, Pasta Carbonara) on 2026-11-17; then re-sync and re-check the report.
 
 ## 1. Where it lives
 - **Repo:** a new public repo, `lunaticllama/recipes`, created with the `gh` command-line tool and cloned to `C:\Users\Phil\Documents\GitHub\recipes`.
@@ -156,19 +156,16 @@ Python's built-in `unittest`, using snippets from the real doc:
    - Re-read the doc, rerun the parser and check the report. The only flags left should be for recipes Phil chose not to fix. Anything else gets shown to Phil, with the exact recipe and line, before moving on.
 
 **Phase 2: design test (index page + 5 test pages)**
-4. Build `index.html` with the title, the search box and the A–Z row, linked to the 5 test pages only.
-5. Build the 5 test recipe pages:
+4. Build `index.html` with the title, the search box and the A–Z row, linked to the 6 test pages only.
+5. Build the 6 test recipe pages:
    - **Adana Kebab:** labelled ingredient groups ("For the Kebabs:", "For Serving:"). It matches the mockup, so it's a direct comparison.
    - **Falafel:** a sub-recipe (Easy Tahini Sauce), a link inside a step, extra text after the last step, and a source.
    - **Jerk Chicken:** a second, unlabelled block of ingredients after a blank line, and a step that wraps onto a second line.
-   - **Tofu Stir Fry:** the most complex layout:
-     - two sauce sub-recipes (Basic Stir Fry Sauce, Hot and Sour Sauce)
-     - the General Tso's Variation, with its Sauce, Tofu and Stir Fry ingredient groups
-     - a second Directions section ("General Tso's Special Directions:")
-     - its own source
+   - **Tofu Stir Fry:** two ingredient-only sauce sub-recipes (Basic Stir Fry Sauce, Hot and Sour Sauce) after the main steps.
+   - **General Tso's Stir Fry:** now its own recipe in the doc (it used to be a variation inside Tofu Stir Fry). Sauce, Tofu and Stir Fry ingredient groups, a "General Tso's Special Directions:" label, and a source.
    - **Thai Noodle Bowls with Tofu and Veggies:** three ingredient groups (Tofu:, Salad:, Dressing:), heavy use of soft line breaks, and a source.
 
-   The design test won't show two things. Cross-links and the look of a flagged recipe (missing steps) aren't on any of these 5 pages, so they're checked in step 9.
+   The design test won't show two things. Cross-links and the look of a flagged recipe (missing steps) aren't on any of these 6 pages, so they're checked in step 9.
 6. **Put the site live.**
    - Push to `main`, add the `CNAME` file, turn on Pages and set the custom domain with `gh`.
    - Phil adds the DNS record (`recipes` → `lunaticllama.github.io`).
