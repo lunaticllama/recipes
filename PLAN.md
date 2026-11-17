@@ -24,6 +24,8 @@ scripts/templates/recipe.html    ← page template from the mockup
 scripts/tests/                   ← parser tests + real doc snippets
 scripts/requirements.txt         ← google-auth, requests
 .github/workflows/sync-recipes.yml
+.github/workflows/check-doc.yml   ← on-demand doc check (no build)
+scripts/report_ignore.txt        ← flags Phil has chosen to leave
 .gitignore                       ← includes the key file
 README.md                        ← setup guide
 PLAN.md                          ← this file
@@ -89,6 +91,12 @@ It's printed on every run and appears in the Action's log. It flags:
 - lines where the parser guessed
 
 Before the doc edits it should flag Moussaka, Bigos, Pumpkin Ravioli and Braised Lamb Shanks. Each one stops being flagged once it's fixed in the doc. Flagged recipes still publish.
+
+**Regular doc check** (so new recipes get checked as Phil adds them):
+- **Nightly:** the nightly Action keeps one open GitHub issue, "Recipe doc check", in the repo. When the report has flags or lines worth a look, the issue's text is replaced with the latest report. GitHub emails Phil when the issue opens or changes. When the report is clean, the issue is closed automatically. Nothing is emailed when nothing has changed.
+- **On demand:** start the "Check recipe doc" run from the Actions tab (it works from a phone too) to check the doc right after adding a recipe, without waiting for the night. It only checks: it doesn't build or publish anything.
+- **Locally:** `python scripts/sync.py --check` prints the report without writing `recipes.json`.
+- **Known exceptions:** a flag Phil has decided to leave (such as Pasta Carbonara's shared step) can be listed in `scripts/report_ignore.txt` (one "Recipe — check" per line) so it stops reappearing.
 
 ## 8. The site
 - **Design:** Phil's `recipe.html` and `style.css`, unchanged, including the DM Serif Display and DM Sans fonts. Matching styles are added for sub-recipe headings, sources and notes. On phones, ingredients stack above the steps as in the mockup, with no sticky panel.
@@ -181,8 +189,14 @@ Python's built-in `unittest`, using snippets from the real doc:
 **Phase 3: full site (only after the design is approved)**
 9. Build all 112 recipe pages from the final template and switch the index to all 112. Check every page and every cross-link, including how flagged recipes look.
 10. Add the nightly workflow, including the 10% safety check.
-11. Write the README.
-12. **Connect the nightly sync.**
+11. **Add the regular doc check** (section 7):
+    - a `--check` option on `sync.py` that only reports, plus `scripts/report_ignore.txt` for flags Phil has decided to leave
+    - the "Recipe doc check" issue step in the nightly workflow (open or update it when there are flags, close it when clean)
+    - a separate "Check recipe doc" workflow that can be started from the Actions tab and only checks
+    - tests for the ignore list and for writing the issue text
+12. Write the README, including how to read the "Recipe doc check" issue and how to start a check by hand.
+13. **Connect the nightly sync.**
     - Phil creates the service account, shares the doc with it and adds the GitHub secret, following the README.
     - Start a manual run of the workflow and confirm it syncs, builds and commits correctly.
-13. Show Phil the final report and a sample of pages, then push the finished site to `main`.
+    - Start the "Check recipe doc" workflow and confirm the issue is opened, updated or closed correctly. Test this by temporarily breaking a recipe in the doc, then fixing it.
+14. Show Phil the final report and a sample of pages, then push the finished site to `main`.
