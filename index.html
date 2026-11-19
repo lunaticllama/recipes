@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phil’s Recipes</title>
+  <meta name="description" content="Phil’s collection of home-cooking recipes, searchable by name or ingredient.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-root="">
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Phil’s Recipes</h1>
+      <div class="search">
+        <label for="search" class="search-label">Search recipes by name or ingredient</label>
+        <input id="search" class="search-input" type="search" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+  </header>
+
+  <section class="results container" aria-label="Search results" aria-live="polite" hidden>
+    <p class="results-count"></p>
+    <ul class="results-list"></ul>
+  </section>
+
+  <main class="container az-page">
+    <nav class="az" aria-label="Recipes A to Z">
+      <button type="button" class="az-letter" data-letter="A" aria-pressed="false" aria-controls="letter-A">A</button>
+      <button type="button" class="az-letter" data-letter="B" disabled aria-label="B: no recipes">B</button>
+      <button type="button" class="az-letter" data-letter="C" disabled aria-label="C: no recipes">C</button>
+      <button type="button" class="az-letter" data-letter="D" disabled aria-label="D: no recipes">D</button>
+      <button type="button" class="az-letter" data-letter="E" disabled aria-label="E: no recipes">E</button>
+      <button type="button" class="az-letter" data-letter="F" aria-pressed="false" aria-controls="letter-F">F</button>
+      <button type="button" class="az-letter" data-letter="G" aria-pressed="false" aria-controls="letter-G">G</button>
+      <button type="button" class="az-letter" data-letter="H" disabled aria-label="H: no recipes">H</button>
+      <button type="button" class="az-letter" data-letter="I" disabled aria-label="I: no recipes">I</button>
+      <button type="button" class="az-letter" data-letter="J" aria-pressed="false" aria-controls="letter-J">J</button>
+      <button type="button" class="az-letter" data-letter="K" disabled aria-label="K: no recipes">K</button>
+      <button type="button" class="az-letter" data-letter="L" disabled aria-label="L: no recipes">L</button>
+      <button type="button" class="az-letter" data-letter="M" disabled aria-label="M: no recipes">M</button>
+      <button type="button" class="az-letter" data-letter="N" disabled aria-label="N: no recipes">N</button>
+      <button type="button" class="az-letter" data-letter="O" disabled aria-label="O: no recipes">O</button>
+      <button type="button" class="az-letter" data-letter="P" disabled aria-label="P: no recipes">P</button>
+      <button type="button" class="az-letter" data-letter="Q" disabled aria-label="Q: no recipes">Q</button>
+      <button type="button" class="az-letter" data-letter="R" disabled aria-label="R: no recipes">R</button>
+      <button type="button" class="az-letter" data-letter="S" disabled aria-label="S: no recipes">S</button>
+      <button type="button" class="az-letter" data-letter="T" aria-pressed="false" aria-controls="letter-T">T</button>
+      <button type="button" class="az-letter" data-letter="U" disabled aria-label="U: no recipes">U</button>
+      <button type="button" class="az-letter" data-letter="V" disabled aria-label="V: no recipes">V</button>
+      <button type="button" class="az-letter" data-letter="W" disabled aria-label="W: no recipes">W</button>
+      <button type="button" class="az-letter" data-letter="X" disabled aria-label="X: no recipes">X</button>
+      <button type="button" class="az-letter" data-letter="Y" disabled aria-label="Y: no recipes">Y</button>
+      <button type="button" class="az-letter" data-letter="Z" disabled aria-label="Z: no recipes">Z</button>
+    </nav>
+    <p class="az-hint" hidden>Choose a letter to see its recipes, or search above.</p>
+    <section class="az-list" id="letter-A" aria-label="Recipes starting with A">
+      <h2 class="az-heading">A</h2>
+      <ul class="results-list">
+        <li><a href="recipes/adana-kebab.html">Adana Kebab</a></li>
+      </ul>
+    </section>
+    <section class="az-list" id="letter-F" aria-label="Recipes starting with F">
+      <h2 class="az-heading">F</h2>
+      <ul class="results-list">
+        <li><a href="recipes/falafel.html">Falafel</a></li>
+      </ul>
+    </section>
+    <section class="az-list" id="letter-G" aria-label="Recipes starting with G">
+      <h2 class="az-heading">G</h2>
+      <ul class="results-list">
+        <li><a href="recipes/general-tsos-stir-fry.html">General Tso’s Stir Fry</a></li>
+      </ul>
+    </section>
+    <section class="az-list" id="letter-J" aria-label="Recipes starting with J">
+      <h2 class="az-heading">J</h2>
+      <ul class="results-list">
+        <li><a href="recipes/jerk-chicken.html">Jerk Chicken</a></li>
+      </ul>
+    </section>
+    <section class="az-list" id="letter-T" aria-label="Recipes starting with T">
+      <h2 class="az-heading">T</h2>
+      <ul class="results-list">
+        <li><a href="recipes/thai-noodle-bowls-with-tofu-and-veggies.html">Thai Noodle Bowls with Tofu and Veggies</a></li>
+        <li><a href="recipes/tofu-stir-fry.html">Tofu Stir Fry</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="assets/fuse.min.js"></script>
+  <script src="assets/search-index.js"></script>
+  <script src="assets/recipes.js"></script>
+</body>
+</html>

@@ -1,6 +1,8 @@
 # Phil's Recipes: Plan
 
-**Status:** Step 2 done (parser, tests and sync script written; `data/recipes.json` built from the real doc, 117 recipes). Step 3 nearly done: Phil fixed the flagged recipes on 2026-11-18 and the report is clean apart from Pasta Carbonara's shared step, which is intentional (goes in `report_ignore.txt` in step 11). Doc now has 118 recipes. Open question: whether Braised Lamb Shanks should get its "Gremolata ingredients:" line back. Next: Step 4.
+**Status:** Step 4 done (index page built by `scripts/build.py` for the 6 design-test recipes; `--all` builds every recipe). Next: Step 5, the 6 recipe pages.
+
+**Earlier:** Step 2 done (parser, tests and sync script written; `data/recipes.json` built from the real doc, 117 recipes). Step 3 nearly done: Phil fixed the flagged recipes on 2026-11-18 and the report is clean apart from Pasta Carbonara's shared step, which is intentional (goes in `report_ignore.txt` in step 11). Doc now has 118 recipes. Open question: whether Braised Lamb Shanks should get its "Gremolata ingredients:" line back. Next: Step 4.
 
 ## 1. Where it lives
 - **Repo:** a new public repo, `lunaticllama/recipes`, created with the `gh` command-line tool and cloned to `C:\Users\Phil\Documents\GitHub\recipes`.
@@ -15,11 +17,13 @@ index.html                       ← landing page
 recipes/<name>.html              ← one page per recipe (112, generated)
 assets/style.css                 ← Phil's style.css + additions
 assets/recipes.js                ← search, A–Z, "Keep screen on"
-assets/fuse.min.js               ← fuzzy-search library, saved in the repo
+assets/fuse.min.js               ← fuzzy-search library (Fuse.js 7.0.0), saved in the repo
+assets/search-index.js           ← titles + ingredients for search (generated)
 data/recipes.json                ← parsed recipes
 scripts/sync.py                  ← fetch doc → recipes.json → report
 scripts/parser.py                ← parsing rules, no network calls
 scripts/build.py                 ← recipes.json → HTML pages
+scripts/templates/index.html     ← landing page template
 scripts/templates/recipe.html    ← page template from the mockup
 scripts/tests/                   ← parser tests + real doc snippets
 scripts/requirements.txt         ← google-auth, requests

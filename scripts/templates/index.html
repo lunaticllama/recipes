@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phil’s Recipes</title>
+  <meta name="description" content="Phil’s collection of home-cooking recipes, searchable by name or ingredient.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-root="">
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Phil’s Recipes</h1>
+      <div class="search">
+        <label for="search" class="search-label">Search recipes by name or ingredient</label>
+        <input id="search" class="search-input" type="search" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+  </header>
+
+  <section class="results container" aria-label="Search results" aria-live="polite" hidden>
+    <p class="results-count"></p>
+    <ul class="results-list"></ul>
+  </section>
+
+  <main class="container az-page">
+    <nav class="az" aria-label="Recipes A to Z">
+{{LETTERS}}
+    </nav>
+    <p class="az-hint" hidden>Choose a letter to see its recipes, or search above.</p>
+{{LISTS}}
+  </main>
+
+  <script src="assets/fuse.min.js"></script>
+  <script src="assets/search-index.js"></script>
+  <script src="assets/recipes.js"></script>
+</body>
+</html>

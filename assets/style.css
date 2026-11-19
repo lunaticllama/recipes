@@ -1,0 +1,349 @@
+/* Phil's Recipes — Design D (Simple) */
+
+:root {
+  --ink: #111111;
+  --muted: #5c5c5c;
+  --line: #dddddd;
+  --bg: #ffffff;
+  --panel: #f7f5f2;
+  --accent: #b23c0a;          /* burnt orange; 5.2:1 on white */
+  --font-display: "DM Serif Display", Georgia, serif;
+  --font-body: "DM Sans", system-ui, -apple-system, sans-serif;
+  --max: 1080px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+a { color: var(--ink); }
+a:hover { color: var(--accent); }
+
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* ---------- Header + search ---------- */
+
+.site-header .container {
+  padding-top: 48px;
+  padding-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.site-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(48px, 8vw, 80px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.search { display: flex; flex-direction: column; gap: 6px; }
+
+.search-label { font-size: 14px; font-weight: 500; }
+
+.search-input {
+  font: inherit;
+  font-size: 22px;
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 2px solid var(--ink);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  -webkit-appearance: none;
+  appearance: none;
+}
+.search-input:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Results ---------- */
+
+.results { padding-top: 20px; }
+
+.results-count { margin: 0 0 4px; font-size: 14px; color: var(--muted); }
+
+.results-list { list-style: none; margin: 0; padding: 0; font-size: 19px; }
+
+.results-list li { border-bottom: 1px solid var(--line); }
+
+.results-list a {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  min-height: 44px;
+  text-decoration: none;
+}
+
+.results-list a.is-current { font-weight: 700; }
+
+.results-hint { font-weight: 500; font-size: 14px; color: var(--accent); }
+
+/* ---------- Recipe card ---------- */
+
+main.container { padding-top: 40px; padding-bottom: 64px; }
+
+.recipe {
+  border: 1px solid var(--line);
+  border-top: 6px solid var(--accent);
+  padding: 40px 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.recipe-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.recipe-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(40px, 6vw, 60px);
+  line-height: 1;
+}
+
+.recipe-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.btn {
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px 18px;
+  min-height: 44px;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: var(--bg);
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+
+.btn-dark { background: var(--ink); color: #ffffff; }
+.btn-dark:hover { background: var(--accent); border-color: var(--accent); color: #ffffff; }
+.btn-dark[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); }
+
+.recipe-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.section-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 28px;
+}
+
+/* Ingredients checklist */
+
+.ingredients {
+  flex: 1 1 280px;
+  max-width: 360px;
+  background: var(--panel);
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ingredient-group { display: flex; flex-direction: column; gap: 10px; }
+
+.group-title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.check { display: flex; gap: 10px; align-items: flex-start; }
+
+.check input {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin: 3px 0 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.check label { cursor: pointer; }
+
+.check input:checked + label {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+/* Directions with circled numbers */
+
+.directions {
+  flex: 2 1 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.steps li {
+  counter-increment: step;
+  display: flex;
+  gap: 16px;
+}
+
+.steps li::before {
+  content: counter(step);
+  flex: 0 0 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* ---------- Phone ---------- */
+
+@media (max-width: 640px) {
+  .site-header .container { padding-top: 32px; }
+  .recipe { padding: 24px 20px; }
+  .ingredients { max-width: none; }
+  .recipe-body { gap: 32px; }
+  .steps { font-size: 17px; }
+}
+
+/* ---------- Print: just the recipe ---------- */
+
+@media print {
+  @page { margin: 0.6in; }
+
+  body { font-size: 11pt; }
+
+  .site-header,
+  .results,
+  .recipe-actions { display: none; }
+
+  main.container { padding: 0; max-width: none; }
+
+  .recipe { border: 0; padding: 0; gap: 18pt; }
+
+  .recipe-title { font-size: 28pt; }
+
+  .ingredients { background: none; padding: 0; max-width: 2.6in; }
+
+  .check input:checked + label { color: var(--ink); text-decoration: none; }
+
+  .steps { font-size: 11pt; gap: 10pt; }
+
+  .steps li::before {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    flex-basis: 22pt;
+    height: 22pt;
+    font-size: 10pt;
+  }
+
+  .steps li, .check { break-inside: avoid; }
+}
+
+/* ==========================================================
+   Additions for the live site. Everything above this line is
+   the Design D mockup's style.css, unchanged.
+   ========================================================== */
+
+[hidden] { display: none !important; }
+
+/* On recipe pages the title links back home. */
+.site-title a { color: inherit; text-decoration: none; }
+.site-title a:hover { color: var(--accent); }
+
+/* ---------- A–Z index ---------- */
+
+main.az-page { padding-top: 28px; }
+
+.az { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.az-letter {
+  font: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--bg);
+  color: var(--ink);
+  cursor: pointer;
+}
+.az-letter:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.az-letter[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #ffffff; }
+.az-letter:disabled { color: #c8c8c8; border-color: #eeeeee; cursor: default; }
+
+.az-letter:focus-visible,
+.results-list a:focus-visible,
+.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.az-list { padding-top: 24px; }
+
+.az-heading {
+  margin: 0 0 4px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 28px;
+}
+
+.az-hint { margin: 20px 0 0; color: var(--muted); }
+
+@media (max-width: 640px) {
+  .az { gap: 4px; }
+  .az-letter { width: calc((100% - 24px) / 7 - 0.5px); }
+}
+
+@media print {
+  .az, .az-hint { display: none; }
+}
