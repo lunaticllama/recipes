@@ -979,8 +979,8 @@
     "tags": []
   },
   {
-    "slug": "classic-sage-and-sausage-stuffing-dressing",
-    "title": "Classic Sage and Sausage Stuffing (Dressing)",
+    "slug": "classic-sage-and-sausage-stuffing",
+    "title": "Classic Sage and Sausage Stuffing",
     "sections": [
       {
         "ingredient_groups": [
@@ -1022,7 +1022,10 @@
       }
     ],
     "notes": [],
-    "tags": []
+    "tags": [
+      "Thanksgiving",
+      "Holidays"
+    ]
   },
   {
     "slug": "christmas-chutney",
@@ -1054,7 +1057,10 @@
     ],
     "sources": [],
     "notes": [],
-    "tags": []
+    "tags": [
+      "Christmas",
+      "Holidays"
+    ]
   },
   {
     "slug": "crunchy-fried-fish",
@@ -1491,7 +1497,9 @@
       }
     ],
     "notes": [],
-    "tags": []
+    "tags": [
+      "Greek"
+    ]
   },
   {
     "slug": "greek-lemon-chicken-and-potatoes",
@@ -1534,7 +1542,9 @@
       }
     ],
     "notes": [],
-    "tags": []
+    "tags": [
+      "Greek"
+    ]
   },
   {
     "slug": "greek-salad-with-broccoli-and-sun-dried-tomatoes",
@@ -1685,6 +1695,51 @@
     "tags": []
   },
   {
+    "slug": "hasselback-potato-gratin",
+    "title": "Hasselback Potato Gratin",
+    "sections": [
+      {
+        "ingredient_groups": [
+          {
+            "items": [
+              "3 ounces (about 1 ⅓ cups) finely grated Gruyère or Comté cheese",
+              "2 ounces (about ⅔ cups) finely grated Parmigiano-Reggiano",
+              "2 cups heavy cream",
+              "2 medium cloves garlic, minced",
+              "1 tablespoon fresh thyme leaves, roughly chopped Kosher salt and freshly ground black pepper",
+              "4 to 4 ½ pounds russet potatoes (about 7 to 8 medium), peeled and sliced ⅛-inch thick on a mandoline slicer",
+              "2 tablespoons unsalted butter, softened (for greasing)"
+            ]
+          }
+        ],
+        "steps": [
+          "Adjust oven rack to middle position and heat oven to 400°F (200°C). Grease a 2-quart casserole dish (or 9x13-inch baking dish) with the softened butter.",
+          "Combine the grated Gruyère and Parmigiano-Reggiano in a large bowl. Transfer ⅓ of the cheese mixture to a separate bowl and set aside for the final topping.",
+          "Add the heavy cream, minced garlic, and chopped thyme to the large bowl with the remaining cheese. Season generously with kosher salt and black pepper.",
+          "Add the sliced potatoes to the bowl and toss with your hands until every slice is coated with the cream mixture, making sure to separate any slices that are sticking together so the liquid gets in between them.",
+          "Pick up a handful of potatoes, organize them into a neat stack, and lay them in the prepared casserole dish with their edges aligned vertically. Continue placing potatoes in the dish, working around the perimeter and into the center until all the potatoes are added and tightly packed. If necessary, slice an additional potato, coat it with the cream mixture, and add it to the dish.",
+          "Pour any excess cream and cheese mixture evenly over the potatoes until it comes about halfway up the sides of the dish.",
+          "Cover the dish tightly with aluminum foil and bake for 30 minutes.",
+          "Remove the foil and continue baking until the top is pale golden brown, about 30 minutes longer.",
+          "Carefully remove from the oven, sprinkle the reserved ⅓ of the cheese mixture evenly over the top, and return to the oven.",
+          "Bake until deep golden brown and crisp on top, about 20 to 30 minutes longer. Remove from the oven, let rest for a few minutes, and serve."
+        ],
+        "notes": []
+      }
+    ],
+    "sources": [
+      {
+        "text": "J. Kenji López-Alt via Serious Eats / J. Kenji López-Alt on Food Lab",
+        "url": "https://www.seriouseats.com/hasselback-potato-gratin-recipe"
+      }
+    ],
+    "notes": [],
+    "tags": [
+      "Thanksgiving",
+      "Holidays"
+    ]
+  },
+  {
     "slug": "italian-sausage",
     "title": "Italian Sausage",
     "sections": [
@@ -1752,49 +1807,9 @@
     ],
     "sources": [],
     "notes": [],
-    "tags": []
-  },
-  {
-    "slug": "hasselback-potato-gratin",
-    "title": "Hasselback Potato Gratin",
-    "sections": [
-      {
-        "ingredient_groups": [
-          {
-            "items": [
-              "3 ounces (about 1 ⅓ cups) finely grated Gruyère or Comté cheese",
-              "2 ounces (about ⅔ cups) finely grated Parmigiano-Reggiano",
-              "2 cups heavy cream",
-              "2 medium cloves garlic, minced",
-              "1 tablespoon fresh thyme leaves, roughly chopped Kosher salt and freshly ground black pepper",
-              "4 to 4 ½ pounds russet potatoes (about 7 to 8 medium), peeled and sliced ⅛-inch thick on a mandoline slicer",
-              "2 tablespoons unsalted butter, softened (for greasing)"
-            ]
-          }
-        ],
-        "steps": [
-          "Adjust oven rack to middle position and heat oven to 400°F (200°C). Grease a 2-quart casserole dish (or 9x13-inch baking dish) with the softened butter.",
-          "Combine the grated Gruyère and Parmigiano-Reggiano in a large bowl. Transfer ⅓ of the cheese mixture to a separate bowl and set aside for the final topping.",
-          "Add the heavy cream, minced garlic, and chopped thyme to the large bowl with the remaining cheese. Season generously with kosher salt and black pepper.",
-          "Add the sliced potatoes to the bowl and toss with your hands until every slice is coated with the cream mixture, making sure to separate any slices that are sticking together so the liquid gets in between them.",
-          "Pick up a handful of potatoes, organize them into a neat stack, and lay them in the prepared casserole dish with their edges aligned vertically. Continue placing potatoes in the dish, working around the perimeter and into the center until all the potatoes are added and tightly packed. If necessary, slice an additional potato, coat it with the cream mixture, and add it to the dish.",
-          "Pour any excess cream and cheese mixture evenly over the potatoes until it comes about halfway up the sides of the dish.",
-          "Cover the dish tightly with aluminum foil and bake for 30 minutes.",
-          "Remove the foil and continue baking until the top is pale golden brown, about 30 minutes longer.",
-          "Carefully remove from the oven, sprinkle the reserved ⅓ of the cheese mixture evenly over the top, and return to the oven.",
-          "Bake until deep golden brown and crisp on top, about 20 to 30 minutes longer. Remove from the oven, let rest for a few minutes, and serve."
-        ],
-        "notes": []
-      }
-    ],
-    "sources": [
-      {
-        "text": "J. Kenji López-Alt via Serious Eats / J. Kenji López-Alt on Food Lab",
-        "url": "https://www.seriouseats.com/hasselback-potato-gratin-recipe"
-      }
-    ],
-    "notes": [],
-    "tags": []
+    "tags": [
+      "Jamaican"
+    ]
   },
   {
     "slug": "jerk-chicken",
@@ -1836,7 +1851,9 @@
     ],
     "sources": [],
     "notes": [],
-    "tags": []
+    "tags": [
+      "Jamaican"
+    ]
   },
   {
     "slug": "kimchi-udon",
@@ -1878,8 +1895,8 @@
     "tags": []
   },
   {
-    "slug": "kimchi-pancake-s",
-    "title": "Kimchi Pancake(s)",
+    "slug": "kimchi-pancakes",
+    "title": "Kimchi Pancakes",
     "sections": [
       {
         "ingredient_groups": [
@@ -2568,7 +2585,9 @@
       }
     ],
     "notes": [],
-    "tags": []
+    "tags": [
+      "Greek"
+    ]
   },
   {
     "slug": "mushroom-bourguignon",
@@ -2708,7 +2727,9 @@
     ],
     "sources": [],
     "notes": [],
-    "tags": []
+    "tags": [
+      "Spanish"
+    ]
   },
   {
     "slug": "pancakes",
@@ -3114,8 +3135,8 @@
     "tags": []
   },
   {
-    "slug": "piyaz-turkish-tomatoe-onion-salad",
-    "title": "Piyaz (Turkish Tomatoe-Onion Salad)",
+    "slug": "piyaz-turkish-tomato-onion-salad",
+    "title": "Piyaz (Turkish Tomato-Onion Salad)",
     "sections": [
       {
         "ingredient_groups": [
@@ -3284,7 +3305,9 @@
     ],
     "sources": [],
     "notes": [],
-    "tags": []
+    "tags": [
+      "Spanish"
+    ]
   },
   {
     "slug": "phils-spanish-chicken-and-chorizo-stew",
@@ -3322,7 +3345,9 @@
     ],
     "sources": [],
     "notes": [],
-    "tags": []
+    "tags": [
+      "Spanish"
+    ]
   },
   {
     "slug": "pizza-bread-no-knead",
@@ -3651,23 +3676,17 @@
         "notes": []
       }
     ],
-    "sources": [
-      {
-        "text": "https://bigflavorstinykitchen.com/ghost-with-the-most-roasted-sweet-potato-ravioli/",
-        "url": "https://bigflavorstinykitchen.com/ghost-with-the-most-roasted-sweet-potato-ravioli/"
-      },
-      {
-        "text": "https://www.seriouseats.com/butternut-squash-ravioli-recipe",
-        "url": "https://www.seriouseats.com/butternut-squash-ravioli-recipe"
-      }
-    ],
+    "sources": [],
     "notes": [
       {
         "name": "Note",
         "text": "This is the best recipe for roasting sugar pumpkins I have found: [https://ohsheglows.com/2012/09/10/how-to-roast-a-sugar-pumpkin-make-fresh-pumpkin-puree-a-step-by-step-photo-tutorial/](https://ohsheglows.com/2012/09/10/how-to-roast-a-sugar-pumpkin-make-fresh-pumpkin-puree-a-step-by-step-photo-tutorial/)"
       }
     ],
-    "tags": []
+    "tags": [
+      "Thanksgiving",
+      "Holidays"
+    ]
   },
   {
     "slug": "quesadillas-several-types",
@@ -3798,7 +3817,9 @@
     ],
     "sources": [],
     "notes": [],
-    "tags": []
+    "tags": [
+      "Jamaican"
+    ]
   },
   {
     "slug": "refried-bean-and-avocado-tacos",
@@ -4003,7 +4024,9 @@
     ],
     "sources": [],
     "notes": [],
-    "tags": []
+    "tags": [
+      "Spanish"
+    ]
   },
   {
     "slug": "spicy-sesame-squash",
@@ -4242,7 +4265,9 @@
       }
     ],
     "notes": [],
-    "tags": []
+    "tags": [
+      "Greek"
+    ]
   },
   {
     "slug": "tamago-kake-gohan-japanese-style-rice-with-egg",
@@ -4551,6 +4576,47 @@
     "tags": []
   },
   {
+    "slug": "turkey-with-roasted-onions",
+    "title": "Turkey with Roasted Onions",
+    "sections": [
+      {
+        "ingredient_groups": [
+          {
+            "items": [
+              "1 12- to 16-pound fresh turkey Kosher salt",
+              "4 tablespoons maple syrup",
+              "1/2 cup unsalted butter, melted 1 tablespoon of a chile paste — gochujang, harissa, or chipotle — plus more to taste",
+              "8 to 10 medium onions, half red, half yellow, peeled and cut into quarters",
+              "1 to 2 tablespoons sunflower, safflower, or another high-heat friendly oil"
+            ]
+          }
+        ],
+        "steps": [
+          "1 to 2 days before serving: Make sure the giblets (usually in a bag) are removed from the turkey's cavity. Sprinkle all over with kosher salt, using about 1 tablespoon per 4 pounds of bird, including some into cavities. I do this on a rack in my roasting pan. Loosely cover with plastic and place in the fridge for 1 to 2 days, and until 4 to 5 hours before you want to serve it.",
+          "1 to 2 hours before roasting: Remove plastic and discard any juices that have collected around the bird. Allow to come to room temperature, which will take 1 to 2 hours. No need to rinse any salt off the bird; it's all as it should be.",
+          "2 1/2 to 3 1/2 hours before serving: Heat oven to 450°F with a rack on the lowest level of the oven. If you plan to stuff the turkey with anything, do so now. Truss the legs (tying them together) with kitchen twine or, uh, any other string you have around.",
+          "Toss the onions with a splash of oil (don't worry about seasoning, they'll collect it from the pan) and arrange around the turkey. Combine 1 tablespoon of the melted butter with the maple syrup and chili paste in a small bowl, whisking until smooth. Brush this — or use your hands to coat — all over the turkey, leaving none behind. Here you're supposed to tuck the wings under the bird to prevent the tips from burning, something I have never successfully done, if we're being honest. Have a big piece of foil nearby for when you will want to cover the turkey.",
+          "Roast turkey for 25 to 30 minutes, then — this is very important — reduce the oven heat to 350° and continue roasting the bird until a thermometer in thickest part of the breast reads 150 to 155.",
+          "Beginning when you reduce the heat, periodically baste the turkey with 1 to 2 tablespoons of the remaining melted butter, and then, when you're out of butter, with the juices from the pan.",
+          "This turkey is going to brown fairly quick and quite dark. Don't fret, it will not taste burnt, but go ahead and put the foil on when it gets as dark as you can stand it. Rotate the pan in the oven a couple times, and turn onions in pan over once, for even cooking. Remove the foil for the last 5 to 10 minutes of roasting, so the skin crisps up again.",
+          "Rest, carve, and serve: Allow the turkey to rest at room temperature 15 to 20 minutes before carving, which you should estimate 20 or so minutes to do, depending on your comfort level. This will allow the juices to be locked in and the turkey to carry over to an internal temperature of 165°F. Use the rest time to rewarm any sides that need it and to make gravy."
+        ],
+        "notes": []
+      }
+    ],
+    "sources": [
+      {
+        "text": "Dry-Brined Turkey with Roasted Onions - Smitten Kitchen",
+        "url": "https://smittenkitchen.com/2019/11/dry-brined-turkey-with-roasted-onions/"
+      }
+    ],
+    "notes": [],
+    "tags": [
+      "Thanksgiving",
+      "Holidays"
+    ]
+  },
+  {
     "slug": "tzatziki",
     "title": "Tzatziki",
     "sections": [
@@ -4575,7 +4641,9 @@
     ],
     "sources": [],
     "notes": [],
-    "tags": []
+    "tags": [
+      "Greek"
+    ]
   },
   {
     "slug": "veggie-rojo-enchiladas",
