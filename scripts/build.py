@@ -184,18 +184,31 @@ def _footer_html(recipe, built):
                   '        <h3 class="section-title">Notes</h3>']
         parts += _notes_html(recipe["notes"], built, "        ", under_notes_heading=True)
         parts.append("      </section>")
-    if recipe["sources"]:
-        heading = "Source" if len(recipe["sources"]) == 1 else "Sources"
-        parts += ['      <section class="sources">',
-                  f'        <h3 class="section-title">{heading}</h3>',
-                  '        <ul class="source-list">']
-        for s in recipe["sources"]:
-            if s.get("url"):
-                text = short_url(s["url"]) if s["text"] == s["url"] else s["text"]
-                parts.append(f'          <li><a href="{esc(s["url"])}">{esc(text)}</a></li>')
-            else:
-                parts.append(f"          <li>{esc(s['text'])}</li>")
-        parts += ["        </ul>", "      </section>"]
+    # Tags and sources share one column, tags first.
+    tags = recipe.get("tags") or []
+    sources = recipe["sources"]
+    if tags or sources:
+        parts.append('      <section class="recipe-meta">')
+        if tags:
+            heading = "Tag" if len(tags) == 1 else "Tags"
+            parts += ['        <div class="tags">',
+                      f'          <h3 class="section-title">{heading}</h3>',
+                      '          <ul class="tag-list">']
+            parts += [f"            <li>{esc(t)}</li>" for t in tags]
+            parts += ["          </ul>", "        </div>"]
+        if sources:
+            heading = "Source" if len(sources) == 1 else "Sources"
+            parts += ['        <div class="sources">',
+                      f'          <h3 class="section-title">{heading}</h3>',
+                      '          <ul class="source-list">']
+            for s in sources:
+                if s.get("url"):
+                    text = short_url(s["url"]) if s["text"] == s["url"] else s["text"]
+                    parts.append(f'            <li><a href="{esc(s["url"])}">{esc(text)}</a></li>')
+                else:
+                    parts.append(f"            <li>{esc(s['text'])}</li>")
+            parts += ["          </ul>", "        </div>"]
+        parts.append("      </section>")
     if not parts:
         return ""
     return "\n".join(['    <footer class="recipe-foot">'] + parts + ["    </footer>"])

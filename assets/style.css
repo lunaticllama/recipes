@@ -384,7 +384,20 @@ main.az-page { padding-top: 28px; }
 }
 .recipe-foot > section { flex: 1 1 280px; display: flex; flex-direction: column; gap: 14px; }
 
+.recipe-foot > .recipe-meta { gap: 28px; }
+.recipe-meta > div { display: flex; flex-direction: column; gap: 14px; }
+
 .source-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+
+/* Tags read as small labels, wrapping onto more lines as needed. */
+.tag-list { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.tag-list li {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 12px;
+  font-size: 0.9em;
+}
 
 @media print {
   .sub-title { padding-top: 12pt; break-after: avoid; }

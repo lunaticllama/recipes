@@ -182,7 +182,7 @@ on the same line or the lines below. Links keep their real target, so linked tex
 
 **Tags.** Add a line like `Tags: thanksgiving, holiday, side dish` anywhere in the recipe (the
 end is a good place). Separate tags with commas and leave out `#`. Search finds recipes by their
-tags; the tags aren't shown on the pages yet. To search tags only, start the search with `#`:
+tags, and each recipe page lists its tags at the bottom, just above the source. To search tags only, start the search with `#`:
 `#greek` finds the recipes tagged Greek but not every recipe with Greek yogurt, and
 `#holidays #christmas` finds recipes with both tags.
 
