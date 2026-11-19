@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phil’s Cajun Pasta · Phil’s Recipes</title>
+  <meta name="description" content="Phil’s recipe for Phil’s Cajun Pasta.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../" data-current="phils-cajun-pasta">
+  <header class="site-header">
+    <div class="container">
+      <p class="site-title"><a href="../index.html">Phil’s Recipes</a></p>
+      <div class="search">
+        <label for="search" class="search-label">Search recipes by name or ingredient</label>
+        <input id="search" class="search-input" type="search" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+  </header>
+
+  <section class="results container" aria-label="Search results" aria-live="polite" hidden>
+    <p class="results-count"></p>
+    <ul class="results-list"></ul>
+  </section>
+
+  <main class="container">
+    <article class="recipe">
+      <div class="recipe-head">
+        <h1 class="recipe-title">Phil’s Cajun Pasta</h1>
+        <div class="recipe-actions">
+          <button type="button" class="btn" data-action="print">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8"/><path d="M6 14h12v7H6z"/></svg>
+            Print
+          </button>
+          <button type="button" class="btn btn-dark" data-action="wake" aria-pressed="false" hidden>Keep screen on</button>
+        </div>
+      </div>
+    <section class="recipe-section">
+      <div class="recipe-body">
+        <section class="ingredients">
+          <h3 class="section-title">Ingredients</h3>
+          <div class="ingredient-group">
+            <div class="check"><input id="ing-1" type="checkbox"><label for="ing-1">½ lb of shrimp, shells removed (and reserved if possible)</label></div>
+            <div class="check"><input id="ing-2" type="checkbox"><label for="ing-2">3 Tbs, cajun seasoning, divided</label></div>
+            <div class="check"><input id="ing-3" type="checkbox"><label for="ing-3">2 links of andouille sausage, diced</label></div>
+            <div class="check"><input id="ing-4" type="checkbox"><label for="ing-4">2 Tbs olive oil</label></div>
+            <div class="check"><input id="ing-5" type="checkbox"><label for="ing-5">1 green bell pepper, diced</label></div>
+            <div class="check"><input id="ing-6" type="checkbox"><label for="ing-6">1 shallot, minced</label></div>
+            <div class="check"><input id="ing-7" type="checkbox"><label for="ing-7">Half a bunch of scallions, green parts diced</label></div>
+            <div class="check"><input id="ing-8" type="checkbox"><label for="ing-8">2 garlic cloves, minced</label></div>
+            <div class="check"><input id="ing-9" type="checkbox"><label for="ing-9">About 10-12 cherry tomatoes, halved</label></div>
+            <div class="check"><input id="ing-10" type="checkbox"><label for="ing-10">¼ cup of white wine</label></div>
+            <div class="check"><input id="ing-11" type="checkbox"><label for="ing-11">1 cup of heavy cream</label></div>
+            <div class="check"><input id="ing-12" type="checkbox"><label for="ing-12">½ lb of penne pasta (or whatever shape you desire)</label></div>
+            <div class="check"><input id="ing-13" type="checkbox"><label for="ing-13">½ cup grated aged asiago</label></div>
+          </div>
+        </section>
+        <section class="directions">
+          <h3 class="section-title">Directions</h3>
+          <ol class="steps">
+            <li><div class="step-text"><p>Heat olive in flat-sided saute pan over medium heat. When hot, add reserve shrimp shells and fry until turning golden. While shells cook, pat shrimp dry, and then toss with 2 tablespoons of cajun seasoning. Season with salt and pepper. Remove shells and then saute shrimp over medium heat in the flavored oil until blackened, about 1 minute each side. Remove shrimp and then add sausage and saute until browned. Once browned, remove. Reserve oil from shrimp and sausage.</p></div></li>
+            <li><div class="step-text"><p>Bring a pot of water to boil and cook penne according to instructions.</p></div></li>
+            <li><div class="step-text"><p>Add pepper, shallots, and scallions to saute pan with reserved oil. Add a tablespoon of water if necessary and allow liquid of vegetables to begin to deglaze pan. After 5-10 minutes, when vegetables are soft, add garlic and saute 30 seconds. Add cherry tomatoes and saute until warm. Then, deglaze with wine. When wine has almost evaporated add in cream and bring to a simmer. Season with remaining cajun seasoning.</p></div></li>
+            <li><div class="step-text"><p>When cream is about to simmer add back in the shrimp and sausage. Bring to a simmer. When pasta is done cooking, reserve ¼ cup of pasta cooking liquid, drain pasta, and then add pasta and liquid to sauce. Add in asiago cheese. Toss together until everything is emulsified.</p></div></li>
+          </ol>
+        </section>
+      </div>
+    </section>
+    </article>
+  </main>
+
+  <script src="../assets/fuse.min.js"></script>
+  <script src="../assets/search-index.js"></script>
+  <script src="../assets/recipes.js"></script>
+</body>
+</html>

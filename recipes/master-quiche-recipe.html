@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Master Quiche Recipe · Phil’s Recipes</title>
+  <meta name="description" content="Phil’s recipe for Master Quiche Recipe.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../" data-current="master-quiche-recipe">
+  <header class="site-header">
+    <div class="container">
+      <p class="site-title"><a href="../index.html">Phil’s Recipes</a></p>
+      <div class="search">
+        <label for="search" class="search-label">Search recipes by name or ingredient</label>
+        <input id="search" class="search-input" type="search" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+  </header>
+
+  <section class="results container" aria-label="Search results" aria-live="polite" hidden>
+    <p class="results-count"></p>
+    <ul class="results-list"></ul>
+  </section>
+
+  <main class="container">
+    <article class="recipe">
+      <div class="recipe-head">
+        <h1 class="recipe-title">Master Quiche Recipe</h1>
+        <div class="recipe-actions">
+          <button type="button" class="btn" data-action="print">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8"/><path d="M6 14h12v7H6z"/></svg>
+            Print
+          </button>
+          <button type="button" class="btn btn-dark" data-action="wake" aria-pressed="false" hidden>Keep screen on</button>
+        </div>
+      </div>
+    <section class="recipe-section">
+      <div class="recipe-body">
+        <section class="ingredients">
+          <h3 class="section-title">Ingredients</h3>
+          <div class="ingredient-group">
+            <div class="check"><input id="ing-1" type="checkbox"><label for="ing-1">1 ½ - 2 cups of heavy cream and/or milk (1 cup of each is best)</label></div>
+            <div class="check"><input id="ing-2" type="checkbox"><label for="ing-2">3 large eggs</label></div>
+            <div class="check"><input id="ing-3" type="checkbox"><label for="ing-3">1 teaspoon kosher salt</label></div>
+            <div class="check"><input id="ing-4" type="checkbox"><label for="ing-4">Freshly ground black pepper</label></div>
+            <div class="check"><input id="ing-5" type="checkbox"><label for="ing-5">8 ounces mixed rindless soft and semi-soft cheeses (such as Gruyere, Fontina, Cheddar, Gorgonzola, Stilton, Jack, etc.), cubed or broken into small clumps</label></div>
+            <div class="check"><input id="ing-6" type="checkbox"><label for="ing-6">Sauted vegetable fillings</label></div>
+            <div class="check"><input id="ing-7" type="checkbox"><label for="ing-7">4 sage leaves or other herbs for decoration (optional)</label></div>
+            <div class="check"><input id="ing-8" type="checkbox"><label for="ing-8">1 pre-made pie crust in pie dish, defrosted, or buttered 9” casserole for crustless quiche</label></div>
+          </div>
+        </section>
+        <section class="directions">
+          <h3 class="section-title">Directions</h3>
+          <ol class="steps">
+            <li><div class="step-text"><p>Preheat oven to 425F and set rack to center position. Line the dough with parchment paper, allowing it to overhang the sides, and fill the pan with pie weights, dried beans, or dry rice. Bake the crust for 10 minutes. Remove weights and parchment paper, wrap edges of the pie dough with tin foil, and return to the oven. Bake until lightly golden brown, 3 to 5 minutes. Remove and lower oven temperature to 350F. If not using crust, skip this step and just preheat oven to 350F.</p></div></li>
+            <li><div class="step-text"><p>In a large bowl, whisk cream and milk with eggs until thoroughly incorporated. Whisk salt and pepper into custard base.</p></div></li>
+            <li><div class="step-text"><p>Scatter half of cheese and vegetable filling all over bottom of pie and set on a rimmed baking sheet. Pour in half of custard mixture or until first layer of fillings and cheese is covered. Add second half of cheese and vegetable filling and pour remaining custard on top. Arrange decorative herbs on top of custard.</p></div></li>
+            <li><div class="step-text"><p>Bake until center is just barely set but still jiggles when touched, about 35 minutes. Remove from oven and allow to cool at least 15 minutes before serving. Serve warm, sprinkling minced chives on top, if desired.</p></div></li>
+          </ol>
+          <div class="note"><h4 class="group-title">Note</h4><p>various vegetable filling ideas include (1) mushrooms/shallots or mushrooms/leeks with blue cheese; (2) spinach and leek with feta, (3) bacon/scallions/onions with gruyere or cheddar; (4) asparagus/shallot with fontina or gruyere (5) mushrooms/onions and swiss; (6) smoked salmon/red onion with swiss or gruyere.</p></div>
+          <div class="note"><h4 class="group-title">Note</h4><p>all vegetables or bacon should be fully cooked/sauteed before adding to quiche. Spinach and mushrooms need all of the water cooked out, otherwise they will destroy the consistency of your custard.</p></div>
+        </section>
+      </div>
+    </section>
+    </article>
+  </main>
+
+  <script src="../assets/fuse.min.js"></script>
+  <script src="../assets/search-index.js"></script>
+  <script src="../assets/recipes.js"></script>
+</body>
+</html>

@@ -91,19 +91,54 @@ class IndexPage(unittest.TestCase):
         self.assertNotIn("{{", self.html)
 
 
-class DesignTestSubset(unittest.TestCase):
+class OnlySubset(unittest.TestCase):
     def test_only_listed_recipes_are_kept(self):
         kept = build.select([ADANA, FALAFEL, THAI], ["falafel", "adana-kebab"])
         self.assertEqual([r["slug"] for r in kept], ["adana-kebab", "falafel"])
 
-    def test_missing_design_test_recipe_is_an_error(self):
+    def test_missing_recipe_is_an_error(self):
         with self.assertRaises(SystemExit):
             build.select([ADANA], ["adana-kebab", "no-such-recipe"])
 
-    def test_default_list_matches_plan(self):
-        self.assertEqual(build.DESIGN_TEST, [
-            "adana-kebab", "falafel", "jerk-chicken", "tofu-stir-fry",
-            "general-tsos-stir-fry", "thai-noodle-bowls-with-tofu-and-veggies"])
+
+def _build_into(out, recipes, *extra):
+    data = os.path.join(out, "recipes.json")
+    with open(data, "w", encoding="utf-8") as f:
+        json.dump(recipes, f)
+    build.main(["--data", data, "--out", out, *extra])
+
+
+class FullBuild(unittest.TestCase):
+    def test_default_builds_every_recipe(self):
+        with tempfile.TemporaryDirectory() as out:
+            _build_into(out, [ADANA, FALAFEL, THAI])
+            self.assertEqual(sorted(os.listdir(os.path.join(out, "recipes"))),
+                             ["adana-kebab.html", "falafel.html", "thai-puffy-eggs.html"])
+
+    def test_cross_links_resolve_in_a_full_build(self):
+        bbq = recipe("Traditional “Sweet and Tangy” BBQ Sauce", "traditional-sweet-and-tangy-bbq-sauce",
+                     [section(["1 cup ketchup"])])
+        with tempfile.TemporaryDirectory() as out:
+            _build_into(out, [PORK, bbq])
+            with open(os.path.join(out, "recipes", "pulled-pork.html"), encoding="utf-8") as f:
+                self.assertIn('<a href="traditional-sweet-and-tangy-bbq-sauce.html">', f.read())
+
+
+class LinkCheck(unittest.TestCase):
+    def test_clean_build_has_no_broken_links(self):
+        with tempfile.TemporaryDirectory() as out:
+            _build_into(out, [ADANA, FALAFEL])
+            self.assertEqual(build.broken_links(out), [])
+
+    def test_broken_link_is_reported(self):
+        with tempfile.TemporaryDirectory() as out:
+            _build_into(out, [ADANA, FALAFEL])
+            page = os.path.join(out, "recipes", "falafel.html")
+            with open(page, "a", encoding="utf-8") as f:
+                f.write('<a href="no-such-page.html">x</a><a href="https://example.com/">ok</a>'
+                        '<a href="#top">ok</a>')
+            broken = build.broken_links(out)
+        self.assertEqual(broken, [("recipes/falafel.html", "no-such-page.html")])
 
 
 class RichText(unittest.TestCase):
@@ -176,6 +211,13 @@ class RecipePage(unittest.TestCase):
                       'minimalistbaker.com/classic-vegan-falafel-gf</a>', self.html)
         self.assertIn("<li>Phil’s own recipe</li>", self.html)
         self.assertIn('<h3 class="section-title">Sources</h3>', self.html)
+
+    def test_plain_note_under_notes_heading_has_no_extra_label(self):
+        r = dict(FULL, notes=[{"name": "Note", "text": "Roast the pumpkin first."}])
+        footer = build.render_recipe(r, set()).split('class="recipe-foot"')[1]
+        self.assertIn('<h3 class="section-title">Notes</h3>', footer)
+        self.assertNotIn('<h4 class="group-title">Note</h4>', footer)
+        self.assertIn("<p>Roast the pumpkin first.</p>", footer)
 
     def test_single_source_heading(self):
         r = dict(FULL, sources=[{"text": "Phil’s own recipe"}])

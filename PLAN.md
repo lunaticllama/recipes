@@ -1,6 +1,6 @@
 # Phil's Recipes: Plan
 
-**Status:** Step 5 done (the 6 design-test recipe pages are built by `scripts/build.py` into `recipes/`). Next: Step 6, put the site live.
+**Status:** Step 9 done (all 118 recipe pages built; `scripts/build.py` now builds every recipe and fails on broken links between pages). Steps 6–8 done except "Enforce HTTPS" and the phone test of "Keep screen on", both waiting for GitHub's https certificate. Next: Step 10, the nightly workflow.
 
 **Earlier:** Step 2 done (parser, tests and sync script written; `data/recipes.json` built from the real doc, 117 recipes). Step 3 nearly done: Phil fixed the flagged recipes on 2026-11-18 and the report is clean apart from Pasta Carbonara's shared step, which is intentional (goes in `report_ignore.txt` in step 11). Doc now has 118 recipes. Open question: whether Braised Lamb Shanks should get its "Gremolata ingredients:" line back. Next: Step 4.
 

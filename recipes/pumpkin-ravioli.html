@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pumpkin Ravioli · Phil’s Recipes</title>
+  <meta name="description" content="Phil’s recipe for Pumpkin Ravioli.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../" data-current="pumpkin-ravioli">
+  <header class="site-header">
+    <div class="container">
+      <p class="site-title"><a href="../index.html">Phil’s Recipes</a></p>
+      <div class="search">
+        <label for="search" class="search-label">Search recipes by name or ingredient</label>
+        <input id="search" class="search-input" type="search" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+  </header>
+
+  <section class="results container" aria-label="Search results" aria-live="polite" hidden>
+    <p class="results-count"></p>
+    <ul class="results-list"></ul>
+  </section>
+
+  <main class="container">
+    <article class="recipe">
+      <div class="recipe-head">
+        <h1 class="recipe-title">Pumpkin Ravioli</h1>
+        <div class="recipe-actions">
+          <button type="button" class="btn" data-action="print">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8"/><path d="M6 14h12v7H6z"/></svg>
+            Print
+          </button>
+          <button type="button" class="btn btn-dark" data-action="wake" aria-pressed="false" hidden>Keep screen on</button>
+        </div>
+      </div>
+    <section class="recipe-section">
+      <div class="recipe-body">
+        <section class="ingredients">
+          <h3 class="section-title">Ingredients</h3>
+          <div class="ingredient-group">
+            <div class="check"><input id="ing-1" type="checkbox"><label for="ing-1"><a href="fresh-egg-pasta-dough.html">Fresh egg pasta dough</a></label></div>
+            <div class="check"><input id="ing-2" type="checkbox"><label for="ing-2">1 sugar pumpkin, roasted and pureed (see note below) or 1 butternut squash, roasted and pureed</label></div>
+            <div class="check"><input id="ing-3" type="checkbox"><label for="ing-3">4 garlic cloves, roasted and mashed into a puree</label></div>
+            <div class="check"><input id="ing-4" type="checkbox"><label for="ing-4">2 ⅓ oz of ricotta or soft blue cheese such as gorgonzola</label></div>
+            <div class="check"><input id="ing-5" type="checkbox"><label for="ing-5">¼ cup minced sage leaves or (parsley)</label></div>
+          </div>
+        </section>
+        <section class="directions">
+          <h3 class="section-title">Directions</h3>
+          <ol class="steps">
+            <li><div class="step-text"><p>Combine roasted squash, garlic, cheese and herbs.</p></div></li>
+            <li><div class="step-text"><p>Roll out fresh pasta dough into sheets.</p></div></li>
+            <li><div class="step-text"><p>Spoon approximately a tablespoon of the squash mixture in even spacing along a sheet of pasta. Either make several rows and top with another sheet of pasta or fold single sheet and then use pasta cutter to cut into ravioli. Repeat for all pasta sheets. Having extra squash mixture is not unusual.</p></div></li>
+          </ol>
+        </section>
+      </div>
+    </section>
+    <footer class="recipe-foot">
+      <section class="recipe-notes">
+        <h3 class="section-title">Notes</h3>
+        <div class="note"><p>This is the best recipe for roasting sugar pumpkins I have found: <a href="https://ohsheglows.com/2012/09/10/how-to-roast-a-sugar-pumpkin-make-fresh-pumpkin-puree-a-step-by-step-photo-tutorial/">https://ohsheglows.com/2012/09/10/how-to-roast-a-sugar-pumpkin-make-fresh-pumpkin-puree-a-step-by-step-photo-tutorial/</a></p></div>
+      </section>
+      <section class="sources">
+        <h3 class="section-title">Sources</h3>
+        <ul class="source-list">
+          <li><a href="https://bigflavorstinykitchen.com/ghost-with-the-most-roasted-sweet-potato-ravioli/">bigflavorstinykitchen.com/ghost-with-the-most-roasted-sweet-potato-ravioli</a></li>
+          <li><a href="https://www.seriouseats.com/butternut-squash-ravioli-recipe">seriouseats.com/butternut-squash-ravioli-recipe</a></li>
+        </ul>
+      </section>
+    </footer>
+    </article>
+  </main>
+
+  <script src="../assets/fuse.min.js"></script>
+  <script src="../assets/search-index.js"></script>
+  <script src="../assets/recipes.js"></script>
+</body>
+</html>

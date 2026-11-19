@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stifado · Phil’s Recipes</title>
+  <meta name="description" content="Phil’s recipe for Stifado.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../" data-current="stifado">
+  <header class="site-header">
+    <div class="container">
+      <p class="site-title"><a href="../index.html">Phil’s Recipes</a></p>
+      <div class="search">
+        <label for="search" class="search-label">Search recipes by name or ingredient</label>
+        <input id="search" class="search-input" type="search" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+  </header>
+
+  <section class="results container" aria-label="Search results" aria-live="polite" hidden>
+    <p class="results-count"></p>
+    <ul class="results-list"></ul>
+  </section>
+
+  <main class="container">
+    <article class="recipe">
+      <div class="recipe-head">
+        <h1 class="recipe-title">Stifado</h1>
+        <div class="recipe-actions">
+          <button type="button" class="btn" data-action="print">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8"/><path d="M6 14h12v7H6z"/></svg>
+            Print
+          </button>
+          <button type="button" class="btn btn-dark" data-action="wake" aria-pressed="false" hidden>Keep screen on</button>
+        </div>
+      </div>
+    <section class="recipe-section">
+      <div class="recipe-body">
+        <section class="ingredients">
+          <h3 class="section-title">Ingredients</h3>
+          <div class="ingredient-group">
+            <div class="check"><input id="ing-1" type="checkbox"><label for="ing-1">2 pounds chuck roast, trimmed and cut into 1 ½-inch pieces</label></div>
+            <div class="check"><input id="ing-2" type="checkbox"><label for="ing-2">3/4 teaspoon kosher salt</label></div>
+            <div class="check"><input id="ing-3" type="checkbox"><label for="ing-3">1/2 teaspoon freshly ground pepper</label></div>
+            <div class="check"><input id="ing-4" type="checkbox"><label for="ing-4">1/4 cup extra virgin olive oil</label></div>
+            <div class="check"><input id="ing-5" type="checkbox"><label for="ing-5">1 1/2 pounds whole pearl onions, peeled</label></div>
+            <div class="check"><input id="ing-6" type="checkbox"><label for="ing-6">5 garlic cloves, coarsely chopped</label></div>
+            <div class="check"><input id="ing-7" type="checkbox"><label for="ing-7">1 tablespoon tomato paste</label></div>
+            <div class="check"><input id="ing-8" type="checkbox"><label for="ing-8">2 bay leaves</label></div>
+            <div class="check"><input id="ing-9" type="checkbox"><label for="ing-9">1 cinnamon stick</label></div>
+            <div class="check"><input id="ing-10" type="checkbox"><label for="ing-10">¼ teaspoon ground clove</label></div>
+            <div class="check"><input id="ing-11" type="checkbox"><label for="ing-11">4 allspice berries (or 1/4 teaspoon ground allspice)</label></div>
+            <div class="check"><input id="ing-12" type="checkbox"><label for="ing-12">1 cup full-bodied red wine</label></div>
+            <div class="check"><input id="ing-13" type="checkbox"><label for="ing-13">1/4 cup Cognac or Brandy</label></div>
+            <div class="check"><input id="ing-14" type="checkbox"><label for="ing-14">1 (14 ounce) can whole or diced tomatoes</label></div>
+          </div>
+        </section>
+        <section class="directions">
+          <h3 class="section-title">Directions</h3>
+          <ol class="steps">
+            <li><div class="step-text"><p>Pat the meat dry and season well with salt and pepper. Heat the olive oil over high heat in a Dutch oven or heavy-bottom pot. Working in batches to avoid overcrowding, sear the meat until lightly browned on all sides (about 1 to 2 minutes per side). Transfer the browned pieces to a bowl, cover, and set aside.</p></div></li>
+            <li><div class="step-text"><p>Reduce the heat to medium and add the peeled pearl onions. Cook until softened but not caramelized, about 10 minutes. Add the chopped garlic and cook for 1 more minute.</p></div></li>
+            <li><div class="step-text"><p>Stir in the tomato paste, bay leaves, cinnamon, ground clove, and allspice berries. Let the mixture caramelize for 1 minute, then return the meat and any accumulated juices to the pot, stirring to coat.</p></div></li>
+            <li><div class="step-text"><p>Pour in the red wine and cognac, using a wooden spoon to scrape up the fond from the bottom of the pot. Simmer for 5 minutes to let the alcohol evaporate slightly.</p></div></li>
+            <li><div class="step-text"><p>Add the tomatoes and enough warm water to cover the meat. Reduce the heat to a medium-low slow simmer, cover, and cook until the meat is tender and the sauce has thickened (about 1 hour 40 minutes to 2 hours). Stir halfway through, checking to ensure there is enough liquid and adding a bit of hot water if needed.</p></div></li>
+            <li><div class="step-text"><p>Adjust seasoning to taste. Remove the bay leaves, cinnamon stick, and allspice berries. Let the stew sit uncovered for 15 minutes before serving warm over orzo, rice, mashed potatoes, or with crusty bread.</p></div></li>
+          </ol>
+        </section>
+      </div>
+    </section>
+    <footer class="recipe-foot">
+      <section class="sources">
+        <h3 class="section-title">Source</h3>
+        <ul class="source-list">
+          <li><a href="https://www.themediterraneandish.com/stifado-greek-beef-stew/">themediterraneandish.com/stifado-greek-beef-stew</a></li>
+        </ul>
+      </section>
+    </footer>
+    </article>
+  </main>
+
+  <script src="../assets/fuse.min.js"></script>
+  <script src="../assets/search-index.js"></script>
+  <script src="../assets/recipes.js"></script>
+</body>
+</html>

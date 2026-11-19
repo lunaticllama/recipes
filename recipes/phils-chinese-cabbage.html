@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phil’s Chinese Cabbage · Phil’s Recipes</title>
+  <meta name="description" content="Phil’s recipe for Phil’s Chinese Cabbage.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../" data-current="phils-chinese-cabbage">
+  <header class="site-header">
+    <div class="container">
+      <p class="site-title"><a href="../index.html">Phil’s Recipes</a></p>
+      <div class="search">
+        <label for="search" class="search-label">Search recipes by name or ingredient</label>
+        <input id="search" class="search-input" type="search" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+  </header>
+
+  <section class="results container" aria-label="Search results" aria-live="polite" hidden>
+    <p class="results-count"></p>
+    <ul class="results-list"></ul>
+  </section>
+
+  <main class="container">
+    <article class="recipe">
+      <div class="recipe-head">
+        <h1 class="recipe-title">Phil’s Chinese Cabbage</h1>
+        <div class="recipe-actions">
+          <button type="button" class="btn" data-action="print">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8"/><path d="M6 14h12v7H6z"/></svg>
+            Print
+          </button>
+          <button type="button" class="btn btn-dark" data-action="wake" aria-pressed="false" hidden>Keep screen on</button>
+        </div>
+      </div>
+    <section class="recipe-section">
+      <div class="recipe-body">
+        <section class="ingredients">
+          <h3 class="section-title">Ingredients</h3>
+          <div class="ingredient-group">
+            <div class="check"><input id="ing-1" type="checkbox"><label for="ing-1">A head or half a head (depending on size) of white, red, or napa cabbage</label></div>
+            <div class="check"><input id="ing-2" type="checkbox"><label for="ing-2">Neutral oil like safflower oil</label></div>
+            <div class="check"><input id="ing-3" type="checkbox"><label for="ing-3">2 cloves garlic, smashed and peeled</label></div>
+            <div class="check"><input id="ing-4" type="checkbox"><label for="ing-4">1-2 Tbs light soy sauce</label></div>
+            <div class="check"><input id="ing-5" type="checkbox"><label for="ing-5">1-2 Tsp dark soy sauce (optional)</label></div>
+            <div class="check"><input id="ing-6" type="checkbox"><label for="ing-6">1-2 Tsp oyster sauce (optional)</label></div>
+            <div class="check"><input id="ing-7" type="checkbox"><label for="ing-7">1-2 Tsp chinkiang or black chinese vinegar (optional)</label></div>
+            <div class="check"><input id="ing-8" type="checkbox"><label for="ing-8">1-2 Tbs <a href="chili-oil.html">chili oil</a> or chili crisp (optional)</label></div>
+          </div>
+        </section>
+        <section class="directions">
+          <h3 class="section-title">Directions</h3>
+          <ol class="steps">
+            <li><div class="step-text"><p>Place a large saute pan (preferably cast-iron) on medium-high heat and add 2 tablespoons of the oil. Quarter cabbage and then cut across the sides of the cabbage, creating thin ribbons. Once oil is smoking, add in cabbage. The cabbage should be able to spread in an relatively thin, even layer across the pan. Do not stir the cabbage for several minutes, until one side is browned. Begin stirring every minute or so, sometimes giving a side a break, until the cabbage is browned on all sides and it is beginning to lose its moisture.</p></div></li>
+            <li><div class="step-text"><p>Add a tablespoon or two of water to the pan and the smashed cloves of garlic. Cook cabbage until water has evaporated and the cabbage is cooked to your taste. If you want the cabbage softer, add another tablespoon or two after the initial water boils off.</p></div></li>
+            <li><div class="step-text"><p>Before the last addition of water has completely reduced, add any combination of soy sauces, oyster sauce, vinegar, and <a href="chili-oil.html">chili oil</a> or chili crisp. Toss the cabbage in the pan to spread the sauces evenly over the cabbage.</p></div></li>
+          </ol>
+        </section>
+      </div>
+    </section>
+    </article>
+  </main>
+
+  <script src="../assets/fuse.min.js"></script>
+  <script src="../assets/search-index.js"></script>
+  <script src="../assets/recipes.js"></script>
+</body>
+</html>

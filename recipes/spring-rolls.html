@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spring Rolls · Phil’s Recipes</title>
+  <meta name="description" content="Phil’s recipe for Spring Rolls.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../" data-current="spring-rolls">
+  <header class="site-header">
+    <div class="container">
+      <p class="site-title"><a href="../index.html">Phil’s Recipes</a></p>
+      <div class="search">
+        <label for="search" class="search-label">Search recipes by name or ingredient</label>
+        <input id="search" class="search-input" type="search" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+  </header>
+
+  <section class="results container" aria-label="Search results" aria-live="polite" hidden>
+    <p class="results-count"></p>
+    <ul class="results-list"></ul>
+  </section>
+
+  <main class="container">
+    <article class="recipe">
+      <div class="recipe-head">
+        <h1 class="recipe-title">Spring Rolls</h1>
+        <div class="recipe-actions">
+          <button type="button" class="btn" data-action="print">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8"/><path d="M6 14h12v7H6z"/></svg>
+            Print
+          </button>
+          <button type="button" class="btn btn-dark" data-action="wake" aria-pressed="false" hidden>Keep screen on</button>
+        </div>
+      </div>
+    <section class="recipe-section">
+      <div class="recipe-body">
+        <section class="ingredients">
+          <h3 class="section-title">Ingredients</h3>
+          <div class="ingredient-group">
+            <div class="check"><input id="ing-1" type="checkbox"><label for="ing-1">Cucumbers, peeled, cored, and julienned.</label></div>
+            <div class="check"><input id="ing-2" type="checkbox"><label for="ing-2">Carrots, julienned</label></div>
+            <div class="check"><input id="ing-3" type="checkbox"><label for="ing-3">Bell peppers, julienned</label></div>
+            <div class="check"><input id="ing-4" type="checkbox"><label for="ing-4">1 bunch radishes, julienned</label></div>
+            <div class="check"><input id="ing-5" type="checkbox"><label for="ing-5">1 bunch cilantro, chopped</label></div>
+            <div class="check"><input id="ing-6" type="checkbox"><label for="ing-6">Kale, collard greens, radish greens</label></div>
+            <div class="check"><input id="ing-7" type="checkbox"><label for="ing-7">1 jalapeno or other hot pepper, sliced</label></div>
+            <div class="check"><input id="ing-8" type="checkbox"><label for="ing-8">1 bunch of spring roll rice wrappers</label></div>
+          </div>
+          <div class="ingredient-group">
+            <h4 class="group-title">Peanut Sauce Ingredients</h4>
+            <div class="check"><input id="ing-9" type="checkbox"><label for="ing-9">½ cup peanut butter, and/or equivalent or portion of butter made from whole peanuts mashed into nut butter in a mortar and pestle (producing a chunkier texture)</label></div>
+            <div class="check"><input id="ing-10" type="checkbox"><label for="ing-10">1 tbs tahini</label></div>
+            <div class="check"><input id="ing-11" type="checkbox"><label for="ing-11">1 clove of garlic, finely minced</label></div>
+            <div class="check"><input id="ing-12" type="checkbox"><label for="ing-12">1 lime, juiced, or approximately 2 tbs lime juice</label></div>
+            <div class="check"><input id="ing-13" type="checkbox"><label for="ing-13">1 tbs maple syrup/sugar</label></div>
+            <div class="check"><input id="ing-14" type="checkbox"><label for="ing-14">2 tbs soy sauce</label></div>
+            <div class="check"><input id="ing-15" type="checkbox"><label for="ing-15">1 tbs rice wine vinegar</label></div>
+            <div class="check"><input id="ing-16" type="checkbox"><label for="ing-16">1 tbs, sambal oelek or other chili sauce</label></div>
+            <div class="check"><input id="ing-17" type="checkbox"><label for="ing-17">1 tbs sesame oil</label></div>
+            <div class="check"><input id="ing-18" type="checkbox"><label for="ing-18">Safflower/coconut/peanut oil, typically 2-4 tbs</label></div>
+          </div>
+          <div class="ingredient-group">
+            <h4 class="group-title">Fried Tofu Ingredients</h4>
+            <div class="check"><input id="ing-19" type="checkbox"><label for="ing-19">1 package extra firm tofu</label></div>
+            <div class="check"><input id="ing-20" type="checkbox"><label for="ing-20">3-6 tbs cornstarch</label></div>
+            <div class="check"><input id="ing-21" type="checkbox"><label for="ing-21">2 tbs soy sauce, divided</label></div>
+            <div class="check"><input id="ing-22" type="checkbox"><label for="ing-22">1 tbs sesame oil</label></div>
+            <div class="check"><input id="ing-23" type="checkbox"><label for="ing-23">Oil for frying</label></div>
+          </div>
+        </section>
+        <section class="directions">
+          <h3 class="section-title">Directions</h3>
+          <ol class="steps">
+            <li><div class="step-text"><p>Combine peanut sauce ingredients in small and whisk together. Whisk in small amounts of oil until if it has consistency and desired flavor. I usually add 2 to 4 tablespoons.</p></div></li>
+            <li><div class="step-text"><p>Prep all of the vegetables. You can add or subtract depending on what you have on hand or want in the spring rolls.</p></div></li>
+            <li><div class="step-text"><p>Prepare tofu. First, line a plate with paper towels and place block of tofu on it. Cover with paper towels and press the tofu with a cast iron pan or other heavy object for 10 minutes. Chop pressed tofu into slices or cubes.</p></div></li>
+            <li><div class="step-text"><p>Place 3 tablespoons of cornstarch in a large ziplock bag with 1 tablespoon of soy sauce. Add approximately ¼ cup of water or so until a loose batter forms. Add tofu and toss until all tofu pieces are evenly covered by cornstarch batter. Add more cornstarch if necessary to make batter stick to tofu.</p></div></li>
+            <li><div class="step-text"><p>Heat up peanut or safflower oil until very hot. Add tofu and fry on all sides until golden. You will probably have to do this in two batches. Drain tofu on paper towel-lined plate. When all tofu has been fried, toss fried tofu with 1 tablespoon of soy sauce and sesame oil.</p></div></li>
+            <li><div class="step-text"><p>At dining table have 1 bowl with water to dunk dried spring roll wrappers in. One at time dunk in water until pliable. Then place soaked wrapper on plate and add ingredients. I start with any bigger leafier greens to help hold everything together, then the peanut sauce, then vegetables, then tofu, and, finally, the cilantro and hot pepper slices. Roll spring close and eat. Repeat. Normal dinner is usually 3-4 spring rolls per person.</p></div></li>
+          </ol>
+        </section>
+      </div>
+    </section>
+    </article>
+  </main>
+
+  <script src="../assets/fuse.min.js"></script>
+  <script src="../assets/search-index.js"></script>
+  <script src="../assets/recipes.js"></script>
+</body>
+</html>

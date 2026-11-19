@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phil’s Roasted Carrots · Phil’s Recipes</title>
+  <meta name="description" content="Phil’s recipe for Phil’s Roasted Carrots.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../" data-current="phils-roasted-carrots">
+  <header class="site-header">
+    <div class="container">
+      <p class="site-title"><a href="../index.html">Phil’s Recipes</a></p>
+      <div class="search">
+        <label for="search" class="search-label">Search recipes by name or ingredient</label>
+        <input id="search" class="search-input" type="search" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+  </header>
+
+  <section class="results container" aria-label="Search results" aria-live="polite" hidden>
+    <p class="results-count"></p>
+    <ul class="results-list"></ul>
+  </section>
+
+  <main class="container">
+    <article class="recipe">
+      <div class="recipe-head">
+        <h1 class="recipe-title">Phil’s Roasted Carrots</h1>
+        <div class="recipe-actions">
+          <button type="button" class="btn" data-action="print">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8"/><path d="M6 14h12v7H6z"/></svg>
+            Print
+          </button>
+          <button type="button" class="btn btn-dark" data-action="wake" aria-pressed="false" hidden>Keep screen on</button>
+        </div>
+      </div>
+    <section class="recipe-section">
+      <div class="recipe-body">
+        <section class="ingredients">
+          <h3 class="section-title">Ingredients</h3>
+          <div class="ingredient-group">
+            <div class="check"><input id="ing-1" type="checkbox"><label for="ing-1">A bunch of carrots, peeled and root ends cut off</label></div>
+            <div class="check"><input id="ing-2" type="checkbox"><label for="ing-2">1-2 Tbs honey or maple syrup</label></div>
+            <div class="check"><input id="ing-3" type="checkbox"><label for="ing-3">A handful of sliced pickled peppers, to taste</label></div>
+            <div class="check"><input id="ing-4" type="checkbox"><label for="ing-4">Feta cheese, optional</label></div>
+            <div class="check"><input id="ing-5" type="checkbox"><label for="ing-5">Olive oil or coconut oil</label></div>
+          </div>
+        </section>
+        <section class="directions">
+          <h3 class="section-title">Directions</h3>
+          <ol class="steps">
+            <li><div class="step-text"><p>Toss carrots with oil and salt and pepper and roast in 400F oven. Toss the carrots on the pan every 5 minutes so that they brown evenly on all sides. When the carrots are browned on all sides and cooked, take out of oven.</p></div></li>
+            <li><div class="step-text"><p>Toss roasted carrots with honey or maple syrup and peppers. Top with feta cheese if desired and serve.</p></div></li>
+          </ol>
+          <div class="note"><h4 class="group-title">Note</h4><p>if you don’t have pickled peppers on hand, slice a spicy pepper or peppers (fresno, jalapeno, or anaheim are all good) and let sit with a couple tablespoons of white or apple cider vinegar while the carrots roast. Use the sliced peppers and discard the vinegar (or, better, use for something else, such as a spicy vinegarette.)</p></div>
+        </section>
+      </div>
+    </section>
+    </article>
+  </main>
+
+  <script src="../assets/fuse.min.js"></script>
+  <script src="../assets/search-index.js"></script>
+  <script src="../assets/recipes.js"></script>
+</body>
+</html>

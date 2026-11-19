@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mushroom Bourguignon · Phil’s Recipes</title>
+  <meta name="description" content="Phil’s recipe for Mushroom Bourguignon.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../" data-current="mushroom-bourguignon">
+  <header class="site-header">
+    <div class="container">
+      <p class="site-title"><a href="../index.html">Phil’s Recipes</a></p>
+      <div class="search">
+        <label for="search" class="search-label">Search recipes by name or ingredient</label>
+        <input id="search" class="search-input" type="search" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+  </header>
+
+  <section class="results container" aria-label="Search results" aria-live="polite" hidden>
+    <p class="results-count"></p>
+    <ul class="results-list"></ul>
+  </section>
+
+  <main class="container">
+    <article class="recipe">
+      <div class="recipe-head">
+        <h1 class="recipe-title">Mushroom Bourguignon</h1>
+        <div class="recipe-actions">
+          <button type="button" class="btn" data-action="print">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8"/><path d="M6 14h12v7H6z"/></svg>
+            Print
+          </button>
+          <button type="button" class="btn btn-dark" data-action="wake" aria-pressed="false" hidden>Keep screen on</button>
+        </div>
+      </div>
+    <section class="recipe-section">
+      <div class="recipe-body">
+        <section class="ingredients">
+          <h3 class="section-title">Ingredients</h3>
+          <div class="ingredient-group">
+            <div class="check"><input id="ing-1" type="checkbox"><label for="ing-1">2 tablespoons olive oil</label></div>
+            <div class="check"><input id="ing-2" type="checkbox"><label for="ing-2">2 tablespoons butter, softened</label></div>
+            <div class="check"><input id="ing-3" type="checkbox"><label for="ing-3">2 pounds portobello mushrooms, in 1/4-inch slices (save the stems for another use) (you can use cremini instead, as well)</label></div>
+            <div class="check"><input id="ing-4" type="checkbox"><label for="ing-4">1/2 carrot, finely diced</label></div>
+            <div class="check"><input id="ing-5" type="checkbox"><label for="ing-5">1 small yellow onion, finely diced</label></div>
+            <div class="check"><input id="ing-6" type="checkbox"><label for="ing-6">1 bunch of leeks, diced</label></div>
+            <div class="check"><input id="ing-7" type="checkbox"><label for="ing-7">2 cloves garlic, minced</label></div>
+            <div class="check"><input id="ing-8" type="checkbox"><label for="ing-8">1 cup full-bodied red wine</label></div>
+            <div class="check"><input id="ing-9" type="checkbox"><label for="ing-9">2 cups beef or vegetable broth (beef broth is traditional but vegetable to make it vegetarian; it works with either)</label></div>
+            <div class="check"><input id="ing-10" type="checkbox"><label for="ing-10">2 tablespoons tomato paste</label></div>
+            <div class="check"><input id="ing-11" type="checkbox"><label for="ing-11">1 teaspoon soy sauce</label></div>
+            <div class="check"><input id="ing-12" type="checkbox"><label for="ing-12">1 teaspoon marmite (or vegemite)</label></div>
+            <div class="check"><input id="ing-13" type="checkbox"><label for="ing-13">1 teaspoon fresh thyme leaves (1/2 teaspoon dried)</label></div>
+            <div class="check"><input id="ing-14" type="checkbox"><label for="ing-14">1 1/2 tablespoons all-purpose flour</label></div>
+            <div class="check"><input id="ing-15" type="checkbox"><label for="ing-15">1 cup pearl onions, peeled (thawed if frozen)</label></div>
+            <div class="check"><input id="ing-16" type="checkbox"><label for="ing-16">Egg noodles, for serving</label></div>
+          </div>
+        </section>
+        <section class="directions">
+          <h3 class="section-title">Directions</h3>
+          <ol class="steps">
+            <li><div class="step-text"><p>Heat the one tablespoon of the olive oil and one tablespoon of butter in a medium Dutch oven or heavy sauce pan over high heat. Sear the mushrooms until they begin to darken, but not yet release any liquid — about three or four minutes. Remove them from pan.</p></div></li>
+            <li><div class="step-text"><p>Lower the flame to medium and add the second tablespoon of olive oil. Toss the carrots, onions, leeks, thyme, a few good pinches of salt and a several grinds of black pepper into the pan and cook for 10, stirring occasionally, until the onions are lightly browned. Add the garlic, tomato paste, and flour and cook for just one or two more minutes.</p></div></li>
+            <li><div class="step-text"><p>Add the wine to the pot, scraping any stuck bits off the bottom, then turn the heat all the way up and reduce it by half and thickened. Stir in the broth, soy sauce, and marmite. Add back the mushrooms with any juices that have collected and once the liquid has boiled, reduce the temperature so it simmers for 20 minutes, or until mushrooms are very tender. Add the pearl onions and simmer for five minutes more.</p></div></li>
+          </ol>
+        </section>
+      </div>
+    </section>
+    <footer class="recipe-foot">
+      <section class="sources">
+        <h3 class="section-title">Source</h3>
+        <ul class="source-list">
+          <li><a href="https://smittenkitchen.com/2009/01/mushroom-bourguignon/">smittenkitchen.com/2009/01/mushroom-bourguignon</a></li>
+        </ul>
+      </section>
+    </footer>
+    </article>
+  </main>
+
+  <script src="../assets/fuse.min.js"></script>
+  <script src="../assets/search-index.js"></script>
+  <script src="../assets/recipes.js"></script>
+</body>
+</html>

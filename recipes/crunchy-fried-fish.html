@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crunchy Fried Fish · Phil’s Recipes</title>
+  <meta name="description" content="Phil’s recipe for Crunchy Fried Fish.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../" data-current="crunchy-fried-fish">
+  <header class="site-header">
+    <div class="container">
+      <p class="site-title"><a href="../index.html">Phil’s Recipes</a></p>
+      <div class="search">
+        <label for="search" class="search-label">Search recipes by name or ingredient</label>
+        <input id="search" class="search-input" type="search" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+  </header>
+
+  <section class="results container" aria-label="Search results" aria-live="polite" hidden>
+    <p class="results-count"></p>
+    <ul class="results-list"></ul>
+  </section>
+
+  <main class="container">
+    <article class="recipe">
+      <div class="recipe-head">
+        <h1 class="recipe-title">Crunchy Fried Fish</h1>
+        <div class="recipe-actions">
+          <button type="button" class="btn" data-action="print">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8"/><path d="M6 14h12v7H6z"/></svg>
+            Print
+          </button>
+          <button type="button" class="btn btn-dark" data-action="wake" aria-pressed="false" hidden>Keep screen on</button>
+        </div>
+      </div>
+    <section class="recipe-section">
+      <div class="recipe-body">
+        <section class="ingredients">
+          <h3 class="section-title">Ingredients</h3>
+          <div class="ingredient-group">
+            <div class="check"><input id="ing-1" type="checkbox"><label for="ing-1">1 1/2 cups cake flour</label></div>
+            <div class="check"><input id="ing-2" type="checkbox"><label for="ing-2">2 tablespoons paprika</label></div>
+            <div class="check"><input id="ing-3" type="checkbox"><label for="ing-3">2 teaspoons black pepper</label></div>
+            <div class="check"><input id="ing-4" type="checkbox"><label for="ing-4">Kosher salt</label></div>
+            <div class="check"><input id="ing-5" type="checkbox"><label for="ing-5">3/4 cup budweiser/beer (plus more as necessary)</label></div>
+            <div class="check"><input id="ing-6" type="checkbox"><label for="ing-6">1 egg</label></div>
+            <div class="check"><input id="ing-7" type="checkbox"><label for="ing-7">1 pound white fish (such as cod, hake, or halibut), cut into eight 2-ounce fingers</label></div>
+            <div class="check"><input id="ing-8" type="checkbox"><label for="ing-8">2 quarts or so of oil for deep frying (preferably peanut oil)</label></div>
+          </div>
+        </section>
+        <section class="directions">
+          <h3 class="section-title">Directions</h3>
+          <ol class="steps">
+            <li><div class="step-text"><p>Combine flour, paprika, black pepper, and salt and whisk to combine. Transfer half of mixture to a large bowl and set aside. Add beer and egg to remaining mixture and whisk until a smooth batter is formed. Batter should have the consistency of thick paint (add up to 1/2 cup more beer as necessary until proper consistency is reached). Set aside.</p></div></li>
+            <li><div class="step-text"><p>Heat oil in a deep fryer, Dutch oven, or large wok to 350°F. Transfer fish pieces to bowl with batter and turn to coat thoroughly. Working one piece at a time, lift fish, let excess batter drip off, then transfer to bowl with remaining flour mixture. Toss to coat thoroughly. Lift carefully with tongs or dry fingers and slowly lower into hot oil. Repeat with remaining fish. You may have to fry in batches.</p></div></li>
+            <li><div class="step-text"><p>Fry, turning occasionally, until golden brown on all sides, about 3 minutes total. Transfer to a paper towel-lined plated and season with salt.</p></div></li>
+          </ol>
+        </section>
+      </div>
+    </section>
+    <footer class="recipe-foot">
+      <section class="sources">
+        <h3 class="section-title">Source</h3>
+        <ul class="source-list">
+          <li><a href="https://www.seriouseats.com/recipes/2013/08/crispy-fried-fish-tacos-recipe.html">seriouseats.com/recipes/2013/08/crispy-fried-fish-tacos-recipe.html</a></li>
+        </ul>
+      </section>
+    </footer>
+    </article>
+  </main>
+
+  <script src="../assets/fuse.min.js"></script>
+  <script src="../assets/search-index.js"></script>
+  <script src="../assets/recipes.js"></script>
+</body>
+</html>
