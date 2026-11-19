@@ -44,12 +44,35 @@ def fetch_doc(doc_id, key_info):
     return resp.json()
 
 
+MAX_DROP = 0.10
+
+
+def previous_count(path):
+    """Number of recipes in the current recipes.json, or None if there isn't one."""
+    if not os.path.exists(path):
+        return None
+    with open(path, encoding="utf-8") as f:
+        return len(json.load(f))
+
+
+def check_count(new, old, allow_drop):
+    """Stop if the doc suddenly has far fewer recipes (e.g. a bad edit or a failed read)."""
+    if old is None or allow_drop or new >= old * (1 - MAX_DROP):
+        return
+    sys.exit(f"Safety check failed: the doc now has {new} recipes, down from {old} "
+             f"(more than {MAX_DROP:.0%} fewer). Nothing was written or published. "
+             "If the recipes were removed on purpose, run again with --allow-drop "
+             "(in GitHub: Actions > Sync recipes > Run workflow, tick 'Allow a big drop').")
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--doc-json", help="parse this saved Docs API JSON instead of fetching")
     ap.add_argument("--doc-id", default=DOC_ID)
     ap.add_argument("--key", default=os.path.join(REPO, "service-account.json"))
     ap.add_argument("--out", default=os.path.join(REPO, "data", "recipes.json"))
+    ap.add_argument("--allow-drop", action="store_true",
+                    help="write recipes.json even if the recipe count fell more than 10%%")
     args = ap.parse_args(argv)
 
     if args.doc_json:
@@ -59,11 +82,12 @@ def main(argv=None):
         doc = fetch_doc(args.doc_id, load_key(args.key))
 
     result = recipe_parser.parse_document(doc)
+    print(recipe_parser.format_report(result))
+    check_count(len(result.recipes), previous_count(args.out), args.allow_drop)
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
     with open(args.out, "w", encoding="utf-8", newline="\n") as f:
         json.dump(result.recipes, f, ensure_ascii=False, indent=2)
         f.write("\n")
-    print(recipe_parser.format_report(result))
     print(f"\nWrote {len(result.recipes)} recipes to {os.path.relpath(args.out, REPO)}")
 
 

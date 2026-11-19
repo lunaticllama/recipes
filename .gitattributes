@@ -1,0 +1,5 @@
+# Store and check out text files with Unix line endings on every machine,
+# so the nightly GitHub Action (Linux) and a Windows checkout never disagree.
+* text=auto eol=lf
+*.png binary
+*.jpg binary

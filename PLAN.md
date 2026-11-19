@@ -1,6 +1,6 @@
 # Phil's Recipes: Plan
 
-**Status:** Step 9 done (all 118 recipe pages built; `scripts/build.py` now builds every recipe and fails on broken links between pages). Steps 6–8 done except "Enforce HTTPS" and the phone test of "Keep screen on", both waiting for GitHub's https certificate. Next: Step 10, the nightly workflow.
+**Status:** Step 10 done (nightly workflow `.github/workflows/sync-recipes.yml` with the 10% safety check; it skips itself until the service account secret exists). Still waiting on GitHub's https certificate for "Enforce HTTPS" and the phone test of "Keep screen on". Next: Step 11, the regular doc check.
 
 **Earlier:** Step 2 done (parser, tests and sync script written; `data/recipes.json` built from the real doc, 117 recipes). Step 3 nearly done: Phil fixed the flagged recipes on 2026-11-18 and the report is clean apart from Pasta Carbonara's shared step, which is intentional (goes in `report_ignore.txt` in step 11). Doc now has 118 recipes. Open question: whether Braised Lamb Shanks should get its "Gremolata ingredients:" line back. Next: Step 4.
 
@@ -130,7 +130,8 @@ Before the doc edits it should flag Moussaka, Bigos, Pumpkin Ravioli and Braised
 ## 9. Nightly GitHub Action
 - **When it runs:** every night at about 3 AM ET, and whenever started from the Actions tab.
 - **Steps:** sync the doc, run the parser tests, build the pages, then commit to `main` and push. It commits only when something changed and deletes pages for recipes removed from the doc.
-- **Safety check:** if the recipe count falls more than 10% below the count in the committed `recipes.json` (currently 112), the run fails and nothing is published.
+- **Safety check:** if the recipe count falls more than 10% below the count in the committed `recipes.json` (currently 118), the run fails and nothing is published. To publish anyway (recipes removed on purpose), start the workflow by hand with "Allow a big drop" ticked, or run `sync.py --allow-drop`.
+- **Before the key exists:** the workflow skips itself with a warning instead of failing, so there are no failure emails until step 13.
 
 ## 10. Tests
 Python's built-in `unittest`, using snippets from the real doc:
