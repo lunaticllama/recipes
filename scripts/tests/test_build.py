@@ -211,10 +211,9 @@ class RecipePage(unittest.TestCase):
         self.assertIn("<p>Use chicken.</p>", self.html)
         self.assertIn('<h4 class="group-title">Alternative</h4>', self.html)
         self.assertIn("<p>Bake instead.</p><p>At 400F.</p>", self.html)
-        self.assertIn('<a href="http://minimalistbaker.com/classic-vegan-falafel-gf/">'
-                      'minimalistbaker.com/classic-vegan-falafel-gf</a>', self.html)
-        self.assertIn("<li>Phil’s own recipe</li>", self.html)
-        self.assertIn('<h3 class="section-title">Sources</h3>', self.html)
+        self.assertIn('<p class="source-line">Sources: '
+                      '<a href="http://minimalistbaker.com/classic-vegan-falafel-gf/">'
+                      'minimalistbaker.com/classic-vegan-falafel-gf</a>, Phil’s own recipe</p>', self.html)
 
     def test_plain_note_under_notes_heading_has_no_extra_label(self):
         r = dict(FULL, notes=[{"name": "Note", "text": "Roast the pumpkin first."}])
@@ -223,34 +222,34 @@ class RecipePage(unittest.TestCase):
         self.assertNotIn('<h4 class="group-title">Note</h4>', footer)
         self.assertIn("<p>Roast the pumpkin first.</p>", footer)
 
-    def test_single_source_heading(self):
+    def test_single_source_line(self):
         r = dict(FULL, sources=[{"text": "Phil’s own recipe"}])
-        self.assertIn('<h3 class="section-title">Source</h3>', build.render_recipe(r, set()))
+        self.assertIn('<p class="source-line">Source: Phil’s own recipe</p>',
+                      build.render_recipe(r, set()))
 
-    def test_tags_show_above_sources_in_the_same_column(self):
-        r = dict(FULL, tags=["Greek", "Holidays & Feasts"])
+    def test_tags_line_above_source_line(self):
+        r = dict(FULL, tags=["Thanksgiving", "Holidays & Feasts"])
         footer = build.render_recipe(r, set()).split('class="recipe-foot"')[1]
         meta = footer.split('<section class="recipe-meta">')[1].split("</section>")[0]
-        self.assertIn('<h3 class="section-title">Tags</h3>', meta)
-        self.assertIn('<li>Greek</li>', meta)
-        self.assertIn('<li>Holidays &amp; Feasts</li>', meta)
-        self.assertLess(meta.index("Tags</h3>"), meta.index("Sources</h3>"))
+        self.assertIn('<p class="tag-line">Tags: #Thanksgiving, #Holidays &amp; Feasts</p>', meta)
+        self.assertLess(meta.index("tag-line"), meta.index("source-line"))
+        self.assertNotIn("<h3", meta)
 
-    def test_single_tag_heading(self):
+    def test_single_tag_line(self):
         r = dict(FULL, tags=["Greek"])
-        self.assertIn('<h3 class="section-title">Tag</h3>', build.render_recipe(r, set()))
+        self.assertIn('<p class="tag-line">Tag: #Greek</p>', build.render_recipe(r, set()))
 
-    def test_no_tags_no_tag_heading(self):
+    def test_no_tags_no_tag_line(self):
         html = build.render_recipe(FULL, set())
-        self.assertNotIn("tag-list", html)
+        self.assertNotIn("tag-line", html)
         self.assertIn('<section class="recipe-meta">', html)
 
     def test_tags_without_sources(self):
         r = dict(FULL, tags=["Greek"], sources=[], notes=[])
         html = build.render_recipe(r, set())
         self.assertIn('<footer class="recipe-foot">', html)
-        self.assertIn('<li>Greek</li>', html)
-        self.assertNotIn("source-list", html)
+        self.assertIn("Tag: #Greek", html)
+        self.assertNotIn("source-line", html)
 
     def test_buttons(self):
         self.assertIn('data-action="print"', self.html)

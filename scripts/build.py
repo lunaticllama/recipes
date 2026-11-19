@@ -189,25 +189,21 @@ def _footer_html(recipe, built):
     sources = recipe["sources"]
     if tags or sources:
         parts.append('      <section class="recipe-meta">')
+        # One plain line each: "Tags: #Thanksgiving, #Holidays" then "Source: <link>".
         if tags:
-            heading = "Tag" if len(tags) == 1 else "Tags"
-            parts += ['        <div class="tags">',
-                      f'          <h3 class="section-title">{heading}</h3>',
-                      '          <ul class="tag-list">']
-            parts += [f"            <li>{esc(t)}</li>" for t in tags]
-            parts += ["          </ul>", "        </div>"]
+            label = "Tag" if len(tags) == 1 else "Tags"
+            listed = ", ".join("#" + esc(t) for t in tags)
+            parts.append(f'        <p class="tag-line">{label}: {listed}</p>')
         if sources:
-            heading = "Source" if len(sources) == 1 else "Sources"
-            parts += ['        <div class="sources">',
-                      f'          <h3 class="section-title">{heading}</h3>',
-                      '          <ul class="source-list">']
+            label = "Source" if len(sources) == 1 else "Sources"
+            items = []
             for s in sources:
                 if s.get("url"):
                     text = short_url(s["url"]) if s["text"] == s["url"] else s["text"]
-                    parts.append(f'            <li><a href="{esc(s["url"])}">{esc(text)}</a></li>')
+                    items.append(f'<a href="{esc(s["url"])}">{esc(text)}</a>')
                 else:
-                    parts.append(f"            <li>{esc(s['text'])}</li>")
-            parts += ["          </ul>", "        </div>"]
+                    items.append(esc(s["text"]))
+            parts.append(f'        <p class="source-line">{label}: {", ".join(items)}</p>')
         parts.append("      </section>")
     if not parts:
         return ""
