@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>General Tso’s Stir Fry · Phil’s Recipes</title>
+  <meta name="description" content="Phil’s recipe for General Tso’s Stir Fry.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../" data-current="general-tsos-stir-fry">
+  <header class="site-header">
+    <div class="container">
+      <p class="site-title"><a href="../index.html">Phil’s Recipes</a></p>
+      <div class="search">
+        <label for="search" class="search-label">Search recipes by name or ingredient</label>
+        <input id="search" class="search-input" type="search" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+  </header>
+
+  <section class="results container" aria-label="Search results" aria-live="polite" hidden>
+    <p class="results-count"></p>
+    <ul class="results-list"></ul>
+  </section>
+
+  <main class="container">
+    <article class="recipe">
+      <div class="recipe-head">
+        <h1 class="recipe-title">General Tso’s Stir Fry</h1>
+        <div class="recipe-actions">
+          <button type="button" class="btn" data-action="print">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8"/><path d="M6 14h12v7H6z"/></svg>
+            Print
+          </button>
+          <button type="button" class="btn btn-dark" data-action="wake" aria-pressed="false" hidden>Keep screen on</button>
+        </div>
+      </div>
+    <section class="recipe-section">
+      <div class="recipe-body">
+        <section class="ingredients">
+          <h3 class="section-title">Ingredients</h3>
+          <div class="ingredient-group">
+            <h4 class="group-title">Sauce</h4>
+            <div class="check"><input id="ing-1" type="checkbox"><label for="ing-1">2 tsp sesame oil</label></div>
+            <div class="check"><input id="ing-2" type="checkbox"><label for="ing-2">2 tsp cornstarch</label></div>
+            <div class="check"><input id="ing-3" type="checkbox"><label for="ing-3">2 large cloves garlic, minced</label></div>
+            <div class="check"><input id="ing-4" type="checkbox"><label for="ing-4">1 Tbsp ginger, minced</label></div>
+            <div class="check"><input id="ing-5" type="checkbox"><label for="ing-5">1 Tbsp rice vinegar (or black chinese/Chinkiang vinegar)</label></div>
+            <div class="check"><input id="ing-6" type="checkbox"><label for="ing-6">1/4 cup coconut sugar, maple syrup, or honey, plus more to taste</label></div>
+            <div class="check"><input id="ing-7" type="checkbox"><label for="ing-7">3 Tbsp tamari or soy sauce (or 2 Tbsp regular soy sauce and 1 Tbsp dark soy sauce)</label></div>
+            <div class="check"><input id="ing-8" type="checkbox"><label for="ing-8">1 Tbsp Sambal Oelek, Siracha, or other hot sauce</label></div>
+            <div class="check"><input id="ing-9" type="checkbox"><label for="ing-9">1 teaspoons Asian fish sauce</label></div>
+            <div class="check"><input id="ing-10" type="checkbox"><label for="ing-10">1 tsp roasted and ground Sichuan peppercorns (optional)</label></div>
+            <div class="check"><input id="ing-11" type="checkbox"><label for="ing-11">1 Tbsp Shaoxing wine, rice wine, sherry, sake, brandy, or white wine</label></div>
+            <div class="check"><input id="ing-12" type="checkbox"><label for="ing-12">1 Tbsp water</label></div>
+          </div>
+          <div class="ingredient-group">
+            <h4 class="group-title">Tofu</h4>
+            <div class="check"><input id="ing-13" type="checkbox"><label for="ing-13">12 ounces extra firm tofu</label></div>
+            <div class="check"><input id="ing-14" type="checkbox"><label for="ing-14">3 Tbsp tamari or soy sauce (tamari for gluten free eaters)</label></div>
+            <div class="check"><input id="ing-15" type="checkbox"><label for="ing-15">1 tsp chili garlic sauce</label></div>
+            <div class="check"><input id="ing-16" type="checkbox"><label for="ing-16">1 tsp toasted sesame oil</label></div>
+            <div class="check"><input id="ing-17" type="checkbox"><label for="ing-17">1 Tbsp maple syrup</label></div>
+            <div class="check"><input id="ing-18" type="checkbox"><label for="ing-18">4-5 Tbsp cornstarch</label></div>
+            <div class="check"><input id="ing-19" type="checkbox"><label for="ing-19">2 Tbsp neutral oil (such as grape seed or canola)</label></div>
+          </div>
+          <div class="ingredient-group">
+            <h4 class="group-title">Stir Fry</h4>
+            <div class="check"><input id="ing-20" type="checkbox"><label for="ing-20">1 Tbsp (15 ml) sesame oil</label></div>
+            <div class="check"><input id="ing-21" type="checkbox"><label for="ing-21">1 bundle green onions, bulbs removed, roughly chopped</label></div>
+            <div class="check"><input id="ing-22" type="checkbox"><label for="ing-22">4-7 dried red chilies (optional for heat, or sub 1 Tbsp chili garlic sauce)</label></div>
+          </div>
+        </section>
+        <section class="directions">
+          <h3 class="section-title">Directions</h3>
+          <ol class="steps">
+            <li><div class="step-text"><p>Place all tofu ingredients besides tofu and cornstarch in bowl and mix to combine. Chop tofu into pieces and then place in zip lock bag with sauce. Shake contents to cover tofu and then begin adding cornstarch, 1 tablespoon at a time, until cornstarch and sauce form a coating that covers the tofu.</p></div></li>
+            <li><div class="step-text"><p>Fry tofu in oil in a cast iron pan over medium heat, flipping to fry all sides until crispy. When you take tofu out of bag, let excess sauce pour off, before placing in hot pan.</p></div></li>
+            <li><div class="step-text"><p>Reserve fried tofu as needed. In a clean pan, saute fried tofu, scallions, and chilis, and then while on heat toss in sauce and serve.</p></div></li>
+          </ol>
+        </section>
+      </div>
+    </section>
+    <footer class="recipe-foot">
+      <section class="sources">
+        <h3 class="section-title">Source</h3>
+        <ul class="source-list">
+          <li><a href="http://minimalistbaker.com/general-tsos-tofu/">minimalistbaker.com/general-tsos-tofu</a></li>
+        </ul>
+      </section>
+    </footer>
+    </article>
+  </main>
+
+  <script src="../assets/fuse.min.js"></script>
+  <script src="../assets/search-index.js"></script>
+  <script src="../assets/recipes.js"></script>
+</body>
+</html>

@@ -473,10 +473,7 @@
               "1 stick cinnamon (optional)",
               "Several dried chiles such as guajillo or ancho chiles, rehydrated in water and de-seeded and de-stemmed (optional)",
               "1 teaspoon vegemite",
-              "1 strip of peeled lemon rind",
-              "½ bunch of parsley, minced",
-              "Zest of 1 lemon, minus 1 strip reserved for lamb",
-              "2 cloves of garlic, minced"
+              "1 strip of peeled lemon rind"
             ]
           }
         ],
@@ -484,8 +481,23 @@
           "Season lamb shanks and then brown in a large saute pan on all sides in olive oil or other neutral oil.",
           "Reserve shanks, add a tablespoon of additional oil if necessary, then saute onion, carrots, celery, and fennel, if using. Once the vegetables are softened, add tomato paste and garlic and saute another minute. Deglaze with wine and bring to a boil.",
           "Add vegetables and wine to pressure cooker. Add lamb shanks and juices on top. Add in bay leaves, herbs, cinnamon and chiles (if using). Add vegemite and lemon rind.",
-          "Seal pressure cooker and then cook on high pressure (12 psi) for 50 minutes.",
-          "For the gremolata topping, mix parsley, lemon zest, and garlic. Serve lamb with gremolata on the side for topping lamb."
+          "Seal pressure cooker and then cook on high pressure (12 psi) for 50 minutes. Once lamb is done, strain out the vegetables from the gravy and serve with gremolata on the side"
+        ],
+        "notes": []
+      },
+      {
+        "name": "Gremolata",
+        "ingredient_groups": [
+          {
+            "items": [
+              "½ bunch of parsley, minced",
+              "Zest of 1 lemon, minus 1 strip reserved for lamb",
+              "2 cloves of garlic, minced"
+            ]
+          }
+        ],
+        "steps": [
+          "Mix parsley, lemon zest, and garlic. Serve gremolata as a topping for braised and roasted meat dishes such as lamb shank and osso bucco."
         ],
         "notes": []
       }

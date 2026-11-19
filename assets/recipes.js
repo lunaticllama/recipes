@@ -115,4 +115,42 @@
     var fromHash = decodeURIComponent(window.location.hash.slice(1));
     pick(fromHash);
   }
+
+  // ---------- recipe page buttons ----------
+
+  var printBtn = document.querySelector('[data-action="print"]');
+  if (printBtn) printBtn.addEventListener("click", function () { window.print(); });
+
+  // "Keep screen on" uses the Screen Wake Lock API (needs https). Browsers
+  // without it never see the button.
+  var wakeBtn = document.querySelector('[data-action="wake"]');
+  if (wakeBtn && "wakeLock" in navigator) {
+    var lock = null;
+    var wanted = false;
+
+    var setPressed = function (on) { wakeBtn.setAttribute("aria-pressed", String(on)); };
+
+    var acquire = function () {
+      return navigator.wakeLock.request("screen").then(function (l) {
+        lock = l;
+        setPressed(true);
+        // The browser drops the lock when the tab is hidden; show that honestly.
+        l.addEventListener("release", function () { lock = null; if (!wanted) setPressed(false); });
+      }).catch(function () { wanted = false; setPressed(false); });
+    };
+
+    wakeBtn.hidden = false;
+    wakeBtn.addEventListener("click", function () {
+      wanted = !wanted;
+      if (wanted) {
+        acquire();
+      } else {
+        setPressed(false);
+        if (lock) lock.release();
+      }
+    });
+    document.addEventListener("visibilitychange", function () {
+      if (wanted && !lock && document.visibilityState === "visible") acquire();
+    });
+  }
 })();

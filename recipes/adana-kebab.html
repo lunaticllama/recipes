@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adana Kebab · Phil’s Recipes</title>
+  <meta name="description" content="Phil’s recipe for Adana Kebab.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../" data-current="adana-kebab">
+  <header class="site-header">
+    <div class="container">
+      <p class="site-title"><a href="../index.html">Phil’s Recipes</a></p>
+      <div class="search">
+        <label for="search" class="search-label">Search recipes by name or ingredient</label>
+        <input id="search" class="search-input" type="search" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+  </header>
+
+  <section class="results container" aria-label="Search results" aria-live="polite" hidden>
+    <p class="results-count"></p>
+    <ul class="results-list"></ul>
+  </section>
+
+  <main class="container">
+    <article class="recipe">
+      <div class="recipe-head">
+        <h1 class="recipe-title">Adana Kebab</h1>
+        <div class="recipe-actions">
+          <button type="button" class="btn" data-action="print">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8"/><path d="M6 14h12v7H6z"/></svg>
+            Print
+          </button>
+          <button type="button" class="btn btn-dark" data-action="wake" aria-pressed="false" hidden>Keep screen on</button>
+        </div>
+      </div>
+    <section class="recipe-section">
+      <div class="recipe-body">
+        <section class="ingredients">
+          <h3 class="section-title">Ingredients</h3>
+          <div class="ingredient-group">
+            <h4 class="group-title">For the Kebabs</h4>
+            <div class="check"><input id="ing-1" type="checkbox"><label for="ing-1">500 grams (about 1 pound 2 ounces) ground lamb</label></div>
+            <div class="check"><input id="ing-2" type="checkbox"><label for="ing-2">Kosher salt</label></div>
+            <div class="check"><input id="ing-3" type="checkbox"><label for="ing-3">2 teaspoons ground cumin, divided</label></div>
+            <div class="check"><input id="ing-4" type="checkbox"><label for="ing-4">2 tablespoons ground sumac, divided</label></div>
+            <div class="check"><input id="ing-5" type="checkbox"><label for="ing-5">2 tablespoons ground Urfa pepper flakes, divided</label></div>
+            <div class="check"><input id="ing-6" type="checkbox"><label for="ing-6">2 tablespoons ice-cold water</label></div>
+          </div>
+          <div class="ingredient-group">
+            <h4 class="group-title">For Serving</h4>
+            <div class="check"><input id="ing-7" type="checkbox"><label for="ing-7">1 red onion, thinly sliced</label></div>
+            <div class="check"><input id="ing-8" type="checkbox"><label for="ing-8">6 pieces lavash or pita</label></div>
+            <div class="check"><input id="ing-9" type="checkbox"><label for="ing-9">1 cup picked fresh parsley leaves</label></div>
+            <div class="check"><input id="ing-10" type="checkbox"><label for="ing-10">2 medium tomatoes, thinly sliced</label></div>
+            <div class="check"><input id="ing-11" type="checkbox"><label for="ing-11">Pickled sport peppers or pepperoncini</label></div>
+          </div>
+        </section>
+        <section class="directions">
+          <h3 class="section-title">Directions</h3>
+          <ol class="steps">
+            <li><div class="step-text"><p>For the Kebabs: Combine lamb with 7.5 grams (about 2 teaspoons) kosher salt, 1 teaspoon cumin, 2 teaspoons sumac, and 1 tablespoon pepper flakes. Knead by hand or in a stand mixer fitted with a paddle attachment until mixture turns tacky and starts sticking to the side of the bowl. Add water and continue kneading until incorporated. Place in refrigerator and chill well.</p></div></li>
+            <li><div class="step-text"><p>Meanwhile, combine remaining teaspoon cumin, 2 teaspoons sumac, remaining tablespoon pepper flakes, and 2 teaspoons salt in a small bowl. Set spice mixture aside. Combine remaining 2 teaspoons sumac and red onions in a medium bowl. Season with salt to taste and set aside.</p><p>Using wet hands, divide lamb mixture into 12 even balls. Using wet hands, form each ball into a long, flat kebab around a skewer.</p></div></li>
+            <li><div class="step-text"><p>Light one chimney full of charcoal. When all the charcoal is lit and covered with gray ash, pour out and arrange the coals on one side of the charcoal grate. Set cooking grate in place, cover grill and allow to preheat for 5 minutes. Alternatively, set half the burners on a gas grill to the highest heat setting, cover, and preheat for 10 minutes. Clean and oil the grilling grate. Place kebabs directly over hot side of grill, cover, and cook, turning occasionally and sprinkling with spice mixture until well charred on both sides and kebabs are cooked through, about 12 minutes total.</p></div></li>
+            <li><div class="step-text"><p>During last few minutes of cooking, place bread directly on top of kebabs in batches until heated through. Serve kebabs with warm bread, sumac onions, parsley, tomatoes, and pickled peppers.</p></div></li>
+          </ol>
+        </section>
+      </div>
+    </section>
+    </article>
+  </main>
+
+  <script src="../assets/fuse.min.js"></script>
+  <script src="../assets/search-index.js"></script>
+  <script src="../assets/recipes.js"></script>
+</body>
+</html>

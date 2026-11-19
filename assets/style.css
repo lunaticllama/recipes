@@ -347,3 +347,54 @@ main.az-page { padding-top: 28px; }
 @media print {
   .az, .az-hint { display: none; }
 }
+
+/* ---------- Recipe pages ---------- */
+
+.recipe-section { display: flex; flex-direction: column; gap: 24px; }
+
+/* Sub-recipes (Easy Tahini Sauce, Hot and Sour Sauce, …) */
+.sub-title {
+  margin: 0;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(28px, 4vw, 36px);
+  line-height: 1.1;
+}
+
+/* A step can have more than one paragraph. */
+.step-text { flex: 1 1 auto; min-width: 0; }
+.step-text p { margin: 0; }
+.step-text p + p { margin-top: 10px; }
+
+.recipe a { overflow-wrap: anywhere; }
+.check label a { color: inherit; }
+
+/* Notes (variations, tips) sit under the steps. */
+.note { display: flex; flex-direction: column; gap: 6px; }
+.note p { margin: 0; }
+.note p + p { margin-top: 6px; }
+
+.recipe-foot {
+  border-top: 1px solid var(--line);
+  padding-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px 48px;
+}
+.recipe-foot > section { flex: 1 1 280px; display: flex; flex-direction: column; gap: 14px; }
+
+.source-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+
+@media print {
+  .sub-title { padding-top: 12pt; break-after: avoid; }
+  .recipe-foot { padding-top: 12pt; }
+  .recipe a { text-decoration: none; }
+  /* Keep ingredients beside the directions on a letter/A4 page, as the
+     mockup's 2.6in ingredient column intends. */
+  .recipe-body { gap: 24pt; flex-wrap: nowrap; }
+  .directions { flex: 1 1 auto; min-width: 0; }
+  .ingredients { flex: 0 0 2.6in; }
+  .ingredient-group { break-inside: avoid; }
+}

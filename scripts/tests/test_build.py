@@ -106,7 +106,107 @@ class DesignTestSubset(unittest.TestCase):
             "general-tsos-stir-fry", "thai-noodle-bowls-with-tofu-and-veggies"])
 
 
+class RichText(unittest.TestCase):
+    def test_escapes_and_links(self):
+        out = build.render_rich("Mix <b> & [the Kitchn](http://kitchn.com/a?b=1&c=2) well", set())
+        self.assertEqual(out, 'Mix &lt;b&gt; &amp; <a href="http://kitchn.com/a?b=1&amp;c=2">the Kitchn</a> well')
+
+    def test_recipe_links_only_to_built_pages(self):
+        text = "[BBQ Sauce](recipe:bbq-sauce) (see recipe)"
+        self.assertEqual(build.render_rich(text, {"bbq-sauce"}),
+                         '<a href="bbq-sauce.html">BBQ Sauce</a> (see recipe)')
+        self.assertEqual(build.render_rich(text, set()), "BBQ Sauce (see recipe)")
+
+    def test_unsafe_link_schemes_become_text(self):
+        self.assertEqual(build.render_rich("[x](javascript:alert)", set()), "x")
+
+
+FULL = recipe("Falafel", "falafel", [
+    {"ingredient_groups": [{"items": ["1½ cups dry chickpeas", "7 cloves garlic"]}],
+     "steps": ["Rinse (method from [the Kitchn](http://kitchn.com/soak)).\nIn the meantime, add parsley.",
+               "Fry."],
+     "notes": [{"name": "Chicken Variation", "text": "Use chicken."}]},
+    {"name": "Easy Tahini Sauce",
+     "ingredient_groups": [{"name": "Sauce", "items": ["¼ cup tahini"]}], "steps": [], "notes": []},
+])
+FULL["sources"] = [{"text": "http://minimalistbaker.com/classic-vegan-falafel-gf/",
+                    "url": "http://minimalistbaker.com/classic-vegan-falafel-gf/"},
+                   {"text": "Phil’s own recipe"}]
+FULL["notes"] = [{"name": "Alternative", "text": "Bake instead.\nAt 400F."}]
+
+
+class RecipePage(unittest.TestCase):
+    def setUp(self):
+        self.html = build.render_recipe(FULL, {"falafel"})
+
+    def test_head_and_header(self):
+        self.assertIn("<title>Falafel · Phil’s Recipes</title>", self.html)
+        self.assertIn('<a href="../index.html">Phil’s Recipes</a>', self.html)
+        self.assertIn('data-root="../"', self.html)
+        self.assertIn('data-current="falafel"', self.html)
+        self.assertIn('<h1 class="recipe-title">Falafel</h1>', self.html)
+        self.assertIn('href="../assets/style.css"', self.html)
+        self.assertNotIn("{{", self.html)
+
+    def test_checklist_has_unique_ids(self):
+        ids = re.findall(r'<input id="(ing-\d+)" type="checkbox">', self.html)
+        self.assertEqual(ids, ["ing-1", "ing-2", "ing-3"])
+        self.assertIn('<label for="ing-3">¼ cup tahini</label>', self.html)
+
+    def test_steps_and_paragraphs(self):
+        self.assertEqual(self.html.count("<li><div class=\"step-text\">"), 2)
+        self.assertIn('<p>Rinse (method from <a href="http://kitchn.com/soak">the Kitchn</a>).</p>'
+                      '<p>In the meantime, add parsley.</p>', self.html)
+
+    def test_sub_recipe_heading_and_group(self):
+        self.assertIn('<h2 class="sub-title">Easy Tahini Sauce</h2>', self.html)
+        self.assertIn('<h4 class="group-title">Sauce</h4>', self.html)
+
+    def test_ingredient_only_section_has_no_directions(self):
+        sauce = self.html.split('<h2 class="sub-title">Easy Tahini Sauce</h2>')[1]
+        self.assertNotIn("Directions", sauce.split("</section>\n    </div>")[0])
+        self.assertEqual(self.html.count('<h3 class="section-title">Directions</h3>'), 1)
+
+    def test_notes_and_sources(self):
+        self.assertIn('<h4 class="group-title">Chicken Variation</h4>', self.html)
+        self.assertIn("<p>Use chicken.</p>", self.html)
+        self.assertIn('<h4 class="group-title">Alternative</h4>', self.html)
+        self.assertIn("<p>Bake instead.</p><p>At 400F.</p>", self.html)
+        self.assertIn('<a href="http://minimalistbaker.com/classic-vegan-falafel-gf/">'
+                      'minimalistbaker.com/classic-vegan-falafel-gf</a>', self.html)
+        self.assertIn("<li>Phil’s own recipe</li>", self.html)
+        self.assertIn('<h3 class="section-title">Sources</h3>', self.html)
+
+    def test_single_source_heading(self):
+        r = dict(FULL, sources=[{"text": "Phil’s own recipe"}])
+        self.assertIn('<h3 class="section-title">Source</h3>', build.render_recipe(r, set()))
+
+    def test_buttons(self):
+        self.assertIn('data-action="print"', self.html)
+        self.assertRegex(self.html, r'<button[^>]*data-action="wake"[^>]*hidden[^>]*>Keep screen on</button>')
+
+    def test_recipe_without_steps_or_sources_still_renders(self):
+        bare = recipe("Braised Lamb Shanks", "braised-lamb-shanks", [section(["2 lamb shanks"])])
+        bare["sections"][0]["steps"] = []
+        html = build.render_recipe(bare, set())
+        self.assertIn("2 lamb shanks", html)
+        self.assertNotIn("Directions", html)
+        self.assertNotIn("Source", html)
+
+
 class WritesFiles(unittest.TestCase):
+    def test_build_writes_recipe_pages_and_removes_stale_ones(self):
+        with tempfile.TemporaryDirectory() as out:
+            data = os.path.join(out, "recipes.json")
+            with open(data, "w", encoding="utf-8") as f:
+                json.dump([ADANA, FALAFEL, THAI], f)
+            os.makedirs(os.path.join(out, "recipes"))
+            stale = os.path.join(out, "recipes", "old-recipe.html")
+            open(stale, "w").close()
+            build.main(["--data", data, "--out", out, "--only", "adana-kebab,falafel"])
+            self.assertEqual(sorted(os.listdir(os.path.join(out, "recipes"))),
+                             ["adana-kebab.html", "falafel.html"])
+
     def test_build_writes_index_and_search_index(self):
         with tempfile.TemporaryDirectory() as out:
             data = os.path.join(out, "recipes.json")
