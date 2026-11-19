@@ -44,7 +44,8 @@ def select(recipes, slugs):
 def search_entries(recipes):
     return [{"title": r["title"], "slug": r["slug"],
              "ingredients": [plain_text(i) for s in r["sections"]
-                             for g in s["ingredient_groups"] for i in g["items"]]}
+                             for g in s["ingredient_groups"] for i in g["items"]],
+             "tags": r.get("tags", [])}
             for r in recipes]
 
 

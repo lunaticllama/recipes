@@ -38,7 +38,11 @@ class SearchIndex(unittest.TestCase):
         entries = build.search_entries([PORK])
         self.assertEqual(entries, [{
             "title": "Pulled Pork", "slug": "pulled-pork",
-            "ingredients": ["Traditional “Sweet and Tangy” BBQ Sauce (see recipe)"]}])
+            "ingredients": ["Traditional “Sweet and Tangy” BBQ Sauce (see recipe)"], "tags": []}])
+
+    def test_tags_are_included(self):
+        tagged = dict(ADANA, tags=["thanksgiving", "side dish"])
+        self.assertEqual(build.search_entries([tagged])[0]["tags"], ["thanksgiving", "side dish"])
 
     def test_sub_recipe_ingredients_are_included(self):
         entry = build.search_entries([FALAFEL])[0]

@@ -180,7 +180,9 @@ small section with steps (like Cabbage Slaw's "Simple version:").
 on the same line or the lines below. Links keep their real target, so linked text like
 "Breadsticks - Preppy Kitchen" stays clickable.
 
-**Tags.** A `Tags: quick, vegetarian` line is saved for later; the site doesn't use tags yet.
+**Tags.** Add a line like `Tags: thanksgiving, holiday, side dish` anywhere in the recipe (the
+end is a good place). Separate tags with commas and leave out `#`. Search finds recipes by their
+tags; the tags aren't shown on the pages yet.
 
 **Soft line breaks** (Shift+Enter), blank lines and stray punctuation-only lines are all fine.
 

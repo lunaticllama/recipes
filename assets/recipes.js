@@ -11,12 +11,15 @@
 
   // ---------- search ----------
 
-  // "all" holds the title and every ingredient, so a search like "lamb tomato"
-  // can match one word in the title and another in the ingredients.
-  recipes.forEach(function (r) { r.all = r.title + " " + r.ingredients.join(" "); });
+  // "all" holds the title, every ingredient and the tags, so a search like
+  // "lamb tomato" can match one word in the title and another in the ingredients.
+  recipes.forEach(function (r) {
+    r.tags = r.tags || [];
+    r.all = r.title + " " + r.ingredients.join(" ") + " " + r.tags.join(" ");
+  });
 
   var fuse = window.Fuse ? new window.Fuse(recipes, {
-    keys: [{ name: "title", weight: 2 }, { name: "all", weight: 1 }],
+    keys: [{ name: "title", weight: 2 }, { name: "tags", weight: 1.5 }, { name: "all", weight: 1 }],
     threshold: 0.25,
     ignoreLocation: true,
     minMatchCharLength: 2,
