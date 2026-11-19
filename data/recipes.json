@@ -462,7 +462,7 @@
               "1 onion, diced",
               "3 carrots, peeled and diced",
               "3 ribs of celery, diced",
-              "1 head of fennel, diced",
+              "1 head of fennel, diced (optional)",
               "1 tbs tomato paste",
               "3 cloves of garlic, diced",
               "Half a bottle of wine",
@@ -470,19 +470,23 @@
               "2 sprigs of thyme",
               "2 tbs of rosemary, minced",
               "2 tbs of sage, minced",
-              "1 strip of peeled lemon rind"
-            ]
-          },
-          {
-            "name": "Gremolata ingredients",
-            "items": [
-              "½ bunch of parsley",
+              "1 stick cinnamon (optional)",
+              "Several dried chiles such as guajillo or ancho chiles, rehydrated in water and de-seeded and de-stemmed (optional)",
+              "1 teaspoon vegemite",
+              "1 strip of peeled lemon rind",
+              "½ bunch of parsley, minced",
               "Zest of 1 lemon, minus 1 strip reserved for lamb",
               "2 cloves of garlic, minced"
             ]
           }
         ],
-        "steps": [],
+        "steps": [
+          "Season lamb shanks and then brown in a large saute pan on all sides in olive oil or other neutral oil.",
+          "Reserve shanks, add a tablespoon of additional oil if necessary, then saute onion, carrots, celery, and fennel, if using. Once the vegetables are softened, add tomato paste and garlic and saute another minute. Deglaze with wine and bring to a boil.",
+          "Add vegetables and wine to pressure cooker. Add lamb shanks and juices on top. Add in bay leaves, herbs, cinnamon and chiles (if using). Add vegemite and lemon rind.",
+          "Seal pressure cooker and then cook on high pressure (12 psi) for 50 minutes.",
+          "For the gremolata topping, mix parsley, lemon zest, and garlic. Serve lamb with gremolata on the side for topping lamb."
+        ],
         "notes": []
       }
     ],
@@ -606,8 +610,10 @@
             "items": [
               "2 and 1/2 cups (313g) all-purpose flour (spooned & leveled), plus more as needed for hands and work surface",
               "1 Tablespoon aluminum-free baking powder",
-              "1/2 teaspoon baking soda1 teaspoon garlic powder",
-              "1 teaspoon salt1/2 cup (8 Tbsp; 113g) unsalted butter, cubed and very cold",
+              "1/2 teaspoon baking soda",
+              "1 teaspoon garlic powder",
+              "1 teaspoon salt",
+              "1/2 cup (8 Tbsp; 113g) unsalted butter, cubed and very cold",
               "1 cup + 2 Tablespoons (270ml) cold buttermilk, divided",
               "2 teaspoons (14g/10ml) honey",
               "1 cup (125g) shredded cheddar cheese",
@@ -969,12 +975,15 @@
           {
             "items": [
               "1-2 loaves (about 1-2 pounds) good quality white or sourdough bread, cut into 3/4-inch cubes",
-              "1 pound bulk Italian pork sausage or standard breakfast sausage 1/2 cup (1 stick) unsalted butter",
-              "2 medium yellow onions, finely chopped 4 celery ribs, finely chopped",
+              "1 pound bulk Italian pork sausage or standard breakfast sausage",
+              "1/2 cup (1 stick) unsalted butter",
+              "2 medium yellow onions, finely chopped",
+              "4 celery ribs, finely chopped",
               "2 medium carrots, peeled and finely chopped (optional)",
               "3 cloves garlic, minced",
               "1 tablespoon chopped fresh sage (or 1 teaspoon rubbed sage)",
-              "1 tablespoon chopped fresh thyme 2 teaspoons chopped fresh rosemary",
+              "1 tablespoon chopped fresh thyme",
+              "2 teaspoons chopped fresh rosemary",
               "1/2 cup dry white wine or vermouth",
               "2 to 4 cups low-sodium chicken or turkey broth",
               "2 large eggs, lightly beaten Salt and freshly ground black pepper"
@@ -2371,8 +2380,8 @@
         ],
         "notes": [
           {
-            "name": "Vegetable filling ideas",
-            "text": "(1) mushrooms/shallots or mushrooms/leeks with blue cheese; (2) spinach and leek with feta, (3) bacon/scallions/onions with gruyere or cheddar; (4) asparagus/shallot with fontina or gruyere (5) mushrooms/onions and swiss; (6) smoked salmon/red onion with swiss or gruyere."
+            "name": "Note",
+            "text": "various vegetable filling ideas include (1) mushrooms/shallots or mushrooms/leeks with blue cheese; (2) spinach and leek with feta, (3) bacon/scallions/onions with gruyere or cheddar; (4) asparagus/shallot with fontina or gruyere (5) mushrooms/onions and swiss; (6) smoked salmon/red onion with swiss or gruyere."
           },
           {
             "name": "Note",
@@ -2881,6 +2890,44 @@
       }
     ],
     "sources": [],
+    "notes": [],
+    "tags": []
+  },
+  {
+    "slug": "fresh-egg-pasta-dough",
+    "title": "Fresh Egg Pasta Dough",
+    "sections": [
+      {
+        "ingredient_groups": [
+          {
+            "items": [
+              "10 ounces (280g; about 2 cups) all-purpose flour, plus more for dusting",
+              "2 whole large eggs",
+              "4 yolks from 4 large eggs",
+              "1 teaspoon kosher salt, plus more for salting water"
+            ]
+          }
+        ],
+        "steps": [
+          "To make the dough: Mound flour in the center of a large, clean work surface, then use your fingers or the bottom of a bowl to push flour out from the center into a wide ring with a 4-inch well in the middle. Crack the whole eggs and egg yolks into the well, then add 1 teaspoon kosher salt.",
+          "Use a fork to gently beat the eggs and salt together until smooth, keeping the liquid contained inside the flour well. Continue beating while slowly drawing small amounts of flour from the inner walls of the well into the eggs until a thick, paste-like batter forms and is no longer runny.",
+          "Using a bench scraper or your hands, fold the remaining flour into the egg mixture until a shaggy, cohesive dough forms. Clean your hands and work surface of any dried dough bits so they do not get worked into the pasta.",
+          "Knead the dough by pressing the heel of your hand into the ball, pushing forward and down, then rotating 45 degrees and repeating. Continue kneading until the dough is smooth, elastic, and has the firm consistency of Play-Doh, about 8 to 10 minutes. (If the dough feels too wet and sticky, knead in flour 1 teaspoon at a time; if too dry and crumbly, mist lightly with water or add a tiny amount of egg yolk.) Wrap tightly in plastic wrap and let rest on the counter for at least 30 minutes (or refrigerate up to 24 hours; bring back to room temperature before rolling).",
+          "To roll the dough: Cut the rested dough into quarters. Set one piece on a lightly floured work surface and keep the remaining pieces covered with plastic wrap or a damp towel so they do not dry out. Flatten the piece with a rolling pin into an oblong shape about 1/2-inch thick.",
+          "Set a pasta machine to its widest setting and pass the flattened dough through 3 times. Fold both short ends of the dough sheet toward the center so they meet, then fold in half like a book. Flatten slightly with a rolling pin and pass through the widest setting 3 more times.",
+          "Narrow the pasta machine by one setting and pass the dough through, repeating the folding and rolling process once or twice until the sheet is smooth and even. Continue narrowing the settings one notch at a time, passing the dough through once or twice per setting without folding, until it reaches your desired thinness (usually the second- or third-thinnest setting for noodles, or the thinnest setting for stuffed pastas). Lightly dust with flour as needed to prevent sticking. Repeat with the remaining dough quarters.",
+          "To cut and cook: Cut the rolled sheets to your desired length (about 12 to 14 inches) and run them through the pasta cutter attachment, or loosely roll up lightly floured sheets and slice by hand with a sharp knife. Toss cut noodles with flour, gather into loose nests on a parchment-lined baking sheet, and cover with a clean towel until ready to cook.",
+          "Bring a large pot of generously salted water to a boil. Add the fresh pasta and cook until tender yet al dente, about 90 seconds to 2 minutes (a bit longer if dried or frozen). Drain and toss immediately with your sauce of choice."
+        ],
+        "notes": []
+      }
+    ],
+    "sources": [
+      {
+        "text": "https://www.seriouseats.com/fresh-egg-pasta",
+        "url": "https://www.seriouseats.com/fresh-egg-pasta"
+      }
+    ],
     "notes": [],
     "tags": []
   },
@@ -3576,23 +3623,23 @@
         "ingredient_groups": [
           {
             "items": [
-              "Fresh pasta dough"
+              "[Fresh egg pasta dough](recipe:fresh-egg-pasta-dough)",
+              "1 sugar pumpkin, roasted and pureed (see note below) or 1 butternut squash, roasted and pureed",
+              "4 garlic cloves, roasted and mashed into a puree",
+              "2 ⅓ oz of ricotta or soft blue cheese such as gorgonzola",
+              "¼ cup minced sage leaves or (parsley)"
             ]
           }
         ],
-        "steps": [],
+        "steps": [
+          "Combine roasted squash, garlic, cheese and herbs.",
+          "Roll out fresh pasta dough into sheets.",
+          "Spoon approximately a tablespoon of the squash mixture in even spacing along a sheet of pasta. Either make several rows and top with another sheet of pasta or fold single sheet and then use pasta cutter to cut into ravioli. Repeat for all pasta sheets. Having extra squash mixture is not unusual."
+        ],
         "notes": []
       }
     ],
     "sources": [
-      {
-        "text": "https://ohsheglows.com/2012/09/10/how-to-roast-a-sugar-pumpkin-make-fresh-pumpkin-puree-a-step-by-step-photo-tutorial/",
-        "url": "https://ohsheglows.com/2012/09/10/how-to-roast-a-sugar-pumpkin-make-fresh-pumpkin-puree-a-step-by-step-photo-tutorial/"
-      },
-      {
-        "text": "https://www.learninghowtocook.com/post/make-your-own-striped-pasta",
-        "url": "https://www.learninghowtocook.com/post/make-your-own-striped-pasta"
-      },
       {
         "text": "https://bigflavorstinykitchen.com/ghost-with-the-most-roasted-sweet-potato-ravioli/",
         "url": "https://bigflavorstinykitchen.com/ghost-with-the-most-roasted-sweet-potato-ravioli/"
@@ -3602,7 +3649,12 @@
         "url": "https://www.seriouseats.com/butternut-squash-ravioli-recipe"
       }
     ],
-    "notes": [],
+    "notes": [
+      {
+        "name": "Note",
+        "text": "This is the best recipe for roasting sugar pumpkins I have found: [https://ohsheglows.com/2012/09/10/how-to-roast-a-sugar-pumpkin-make-fresh-pumpkin-puree-a-step-by-step-photo-tutorial/](https://ohsheglows.com/2012/09/10/how-to-roast-a-sugar-pumpkin-make-fresh-pumpkin-puree-a-step-by-step-photo-tutorial/)"
+      }
+    ],
     "tags": []
   },
   {
@@ -3840,7 +3892,7 @@
             "items": [
               "¼ cup red beans, dried or canned (see preparation note)",
               "¼ cup chickpeas, dried or canned (see preparation note)",
-              "¼ cup dried fava beans ¼ cup lentils",
+              "¼ cup lentils (or ¼ cup dried fava beans)",
               "2 large potatoes, peeled and cut into 1-inch cubes",
               "1 onion, chopped",
               "1 bunch beet or Swiss chard leaves",
@@ -3860,7 +3912,7 @@
           "Peel the fava beans by squeezing each one between your thumb and other fingers. The skins should slip off pretty easily. In a soup pot, simmer beans in water to cover for 45 minutes to 1 hour, adding lentils after 30 minutes. Drain beans and lentils.",
           "If using canned beans: Rinse and simmer beans and lentils in water to cover for 30 minutes, then drain.",
           "For the minestrone: In large soup pot, combine beans with all vegetables in water and bring to a boil. Lower heat to medium-low and simmer for 15 minutes. Add fregula and simmer for another 15 minutes.",
-          "Note: We just use what canned beans we want, fregula is a Sardinian semolina pasta in pastini shape - we can use anything. The idea is fennel, swiss chard, 1 tomato, veg, + beans + small pasta for a summer minestrone."
+          "Note: We just use what canned beans we want, fregula is a Sardinian semolina pasta in pastini shape - we can use anything. The idea is a soup made with fennel, swiss chard, 1 tomato, vegetables, beans, and small pasta. This is a soup appropriate for any season, including summer."
         ],
         "notes": []
       }
@@ -4487,17 +4539,26 @@
     "tags": []
   },
   {
-    "slug": "tzatziki-sauce",
-    "title": "Tzatziki Sauce",
+    "slug": "tzatziki",
+    "title": "Tzatziki",
     "sections": [
       {
-        "ingredient_groups": [],
-        "steps": [],
-        "notes": [
+        "ingredient_groups": [
           {
-            "text": "Combine 1 cup of greek yogurt with 1 cucumber (peeled and pitted), diced small, salt, pepper, and lemon juice to taste. If you don’t have lemon juice, it will be fine."
+            "items": [
+              "1 cucumber (peeled and pitted), shredded or diced small or simply grate whole cucumber",
+              "1-2 cups greek yogurt",
+              "2-3 tablespoons of olive oil",
+              "Minced handful of mint, dill, or parsley, or a mix (optional)",
+              "Juice of half a lemon (optional)",
+              "1 clove of garlic (minced or grated) (optional)"
+            ]
           }
-        ]
+        ],
+        "steps": [
+          "Combine all ingredients and season."
+        ],
+        "notes": []
       }
     ],
     "sources": [],

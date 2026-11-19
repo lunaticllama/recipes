@@ -115,6 +115,7 @@ def doc_to_lines(doc):
 # --- patterns --------------------------------------------------------------
 
 STEP = re.compile(r"^(\d{1,2})(?:\.\s+|\s+\.\s*)(?=\S)")
+STEP_TYPO = re.compile(r"^(\d{1,2})[,;:]\s+(?=[A-Za-z])")  # "3, Spoon…" typed for "3. Spoon…"
 ING_LABEL = re.compile(r"^(?:(?P<prefix>(?:\S+\s+){0,5}?\S+)\s+ingredients\s*:|ingredients\s*:?)$", re.I)
 DIR_LABEL = re.compile(r"^(?:(?P<prefix>(?:\S+\s+){0,5}?\S+)\s+(?:directions|instructions)\s*:"
                        r"|(?:directions|instructions)\s*:?)$", re.I)
@@ -156,6 +157,11 @@ def _looks_like_instruction(plain):
         return False
     first = re.sub(r"\W", "", words[0]).lower()
     return first in VERBS or re.search(r"[a-z]\.\s+[A-Z]", plain) is not None
+
+
+def _links_only(rich):
+    rest = BARE_URL.sub(" ", MD_LINK.sub(" ", rich))
+    return rest != rich and not any(ch.isalnum() for ch in rest)
 
 
 def _merged_ingredients(plain):
@@ -316,6 +322,9 @@ class _RecipeBuilder:
             return
 
         step = STEP.match(t)
+        if not step and self.mode == DIR and (step := STEP_TYPO.match(t)):
+            self.guess(f"step number looks mistyped (“{t[:step.end()].strip()}” instead of "
+                       f"“{step.group(1)}.”); treated it as step {step.group(1)}")
         if step or line.listed:
             number = int(step.group(1)) if step else None
             text = t[step.end():] if step else t
@@ -359,7 +368,11 @@ class _RecipeBuilder:
             else:
                 self.section["steps"][-1] = self._append(self.section["steps"][-1], line)
         elif self.mode == NOTE:
-            if colon_name:
+            if self.note in self.recipe["notes"] and _links_only(t):
+                # a note written among the sources, followed by more source links
+                self.mode = SRC
+                self._add_sources(t)
+            elif colon_name:
                 target = self.recipe["notes"] if self.note in self.recipe["notes"] else None
                 self._start_note(p.rstrip(":").strip(), "", target)
             else:
@@ -475,6 +488,7 @@ CROSS_LINKS = [
     ("Phil’s Chinese Cabbage", "chili oil", "Chili Oil"),
     ("Taiwanese Spicy Beef Soup", "chili oil", "Chili Oil"),
     ("Yucatan Shrimp", "chili oil", "Chili Oil"),
+    ("Pumpkin Ravioli", "Fresh egg pasta dough", "Fresh Egg Pasta Dough"),
 ]
 
 

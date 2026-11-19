@@ -1,6 +1,6 @@
 # Phil's Recipes: Plan
 
-**Status:** Step 2 done (parser, tests and sync script written; `data/recipes.json` built from the real doc, 117 recipes). Next: Step 3. Phil is fixing the flagged recipes (Braised Lamb Shanks, Pumpkin Ravioli, Tzatziki Sauce, Pasta Carbonara) on 2026-11-17; then re-sync and re-check the report.
+**Status:** Step 2 done (parser, tests and sync script written; `data/recipes.json` built from the real doc, 117 recipes). Step 3 nearly done: Phil fixed the flagged recipes on 2026-11-18 and the report is clean apart from Pasta Carbonara's shared step, which is intentional (goes in `report_ignore.txt` in step 11). Doc now has 118 recipes. Open question: whether Braised Lamb Shanks should get its "Gremolata ingredients:" line back. Next: Step 4.
 
 ## 1. Where it lives
 - **Repo:** a new public repo, `lunaticllama/recipes`, created with the `gh` command-line tool and cloned to `C:\Users\Phil\Documents\GitHub\recipes`.
@@ -116,6 +116,7 @@ Before the doc edits it should flag Moussaka, Bigos, Pumpkin Ravioli and Braised
   - Buffalo Chicken Dip → Blue Cheese Dressing
   - Pasta Broccoli Bolognese → Italian Sausage
   - Korean Spicy Beef Soup, Phil's Chinese Cabbage, Taiwanese Spicy Beef Soup and Yucatan Shrimp → Chili Oil
+  - Pumpkin Ravioli → Fresh Egg Pasta Dough
   - **Not linked:** Korean Spicy Beef Soup → Beef Stock, and anything to Pancakes.
 - **"Keep screen on":** keeps the phone's screen awake while a recipe is open. The button is hidden on browsers that don't support it.
 - **Print:** the print styles from the mockup print just the recipe, without the header, search or buttons.

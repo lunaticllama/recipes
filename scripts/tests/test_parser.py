@@ -654,6 +654,61 @@ class ProblemReport(unittest.TestCase):
         self.assertIn("1 recipe", text)
 
 
+PUMPKIN_RAVIOLI_NEW = """
+## Pumpkin Ravioli
+Ingredients:
+Fresh egg pasta dough
+4 garlic cloves, roasted and mashed into a puree
+
+Directions:
+1.\tCombine roasted squash, garlic, cheese and herbs.
+
+2.\tRoll out fresh pasta dough into sheets.
+
+3,\tSpoon approximately a tablespoon of the squash mixture along a sheet of pasta.
+Source:
+Note: This is the best recipe for roasting sugar pumpkins I have found: <https://ohsheglows.com/roast-a-sugar-pumpkin/|https://ohsheglows.com/roast-a-sugar-pumpkin/>
+
+
+<https://bigflavorstinykitchen.com/roasted-sweet-potato-ravioli/|https://bigflavorstinykitchen.com/roasted-sweet-potato-ravioli/>
+<https://www.seriouseats.com/butternut-squash-ravioli-recipe|https://www.seriouseats.com/butternut-squash-ravioli-recipe>
+"""
+
+
+class DocTypos(unittest.TestCase):
+    def test_step_number_typed_with_comma_is_a_step_and_flagged(self):
+        result = parse(PUMPKIN_RAVIOLI_NEW)
+        steps = result.recipes[0]["sections"][0]["steps"]
+        self.assertEqual(len(steps), 3)
+        self.assertTrue(steps[2].startswith("Spoon approximately"))
+        guesses = [p["detail"] for p in result.problems if p["kind"] == "guess"]
+        self.assertTrue(any("3," in g for g in guesses), guesses)
+
+    def test_comma_number_in_ingredients_is_not_a_step(self):
+        r = one("""
+        ## Lentil and Bean Chili
+        Ingredients:
+        2, 15-ounce cans diced tomatoes
+        Directions:
+        1.\tHeat a large pot.
+        """)
+        self.assertEqual(items(r["sections"][0]), ["2, 15-ounce cans diced tomatoes"])
+
+    def test_links_after_a_note_in_sources_stay_sources(self):
+        r = one(PUMPKIN_RAVIOLI_NEW)
+        self.assertEqual([s["url"] for s in r["sources"]],
+                         ["https://bigflavorstinykitchen.com/roasted-sweet-potato-ravioli/",
+                          "https://www.seriouseats.com/butternut-squash-ravioli-recipe"])
+        self.assertEqual(len(r["notes"]), 1)
+        self.assertIn("ohsheglows.com", r["notes"][0]["text"])
+        self.assertNotIn("seriouseats", r["notes"][0]["text"])
+
+    def test_pumpkin_ravioli_links_to_fresh_egg_pasta_dough(self):
+        result = parse(PUMPKIN_RAVIOLI_NEW + "## Fresh Egg Pasta Dough\nIngredients:\n2 whole large eggs\n")
+        first = result.recipes[0]["sections"][0]["ingredient_groups"][0]["items"][0]
+        self.assertEqual(first, "[Fresh egg pasta dough](recipe:fresh-egg-pasta-dough)")
+
+
 class Cleanup(unittest.TestCase):
     def test_soft_breaks_split_lines(self):
         r = one("""
