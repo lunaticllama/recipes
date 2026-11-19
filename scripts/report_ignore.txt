@@ -1,0 +1,6 @@
+# Flags in the recipe doc check that Phil has decided to leave as they are.
+# One per line: Recipe title — check
+# The check names are the ones shown in brackets in the report, e.g. [copied-step].
+# Lines starting with # are ignored.
+
+Pasta Carbonara — copied-step

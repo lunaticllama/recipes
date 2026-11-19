@@ -1,6 +1,6 @@
 # Phil's Recipes: Plan
 
-**Status:** Step 10 done (nightly workflow `.github/workflows/sync-recipes.yml` with the 10% safety check; it skips itself until the service account secret exists). Still waiting on GitHub's https certificate for "Enforce HTTPS" and the phone test of "Keep screen on". Next: Step 11, the regular doc check.
+**Status:** Step 11 done (regular doc check: `sync.py --check` and `--report-md`, `scripts/report_ignore.txt`, `scripts/update_issue.sh`, the issue step in the nightly workflow and the on-demand "Check recipe doc" workflow). Still waiting on GitHub's https certificate for "Enforce HTTPS" and the phone test of "Keep screen on". Next: Step 12, the README.
 
 **Earlier:** Step 2 done (parser, tests and sync script written; `data/recipes.json` built from the real doc, 117 recipes). Step 3 nearly done: Phil fixed the flagged recipes on 2026-11-18 and the report is clean apart from Pasta Carbonara's shared step, which is intentional (goes in `report_ignore.txt` in step 11). Doc now has 118 recipes. Open question: whether Braised Lamb Shanks should get its "Gremolata ingredients:" line back. Next: Step 4.
 
@@ -30,6 +30,7 @@ scripts/requirements.txt         ← google-auth, requests
 .github/workflows/sync-recipes.yml
 .github/workflows/check-doc.yml   ← on-demand doc check (no build)
 scripts/report_ignore.txt        ← flags Phil has chosen to leave
+scripts/update_issue.sh          ← opens/updates/closes the "Recipe doc check" issue
 .gitignore                       ← includes the key file
 README.md                        ← setup guide
 PLAN.md                          ← this file

@@ -17,6 +17,7 @@ on:
 permissions:
   contents: write   # commit and push the rebuilt site
   pages: write      # ask GitHub Pages to rebuild after the push
+  issues: write     # keep the "Recipe doc check" issue up to date
 
 concurrency:
   group: sync-recipes
@@ -58,7 +59,13 @@ jobs:
         env:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
           ALLOW_DROP: ${{ inputs.allow_drop && '--allow-drop' || '' }}
-        run: python scripts/sync.py $ALLOW_DROP
+        run: python scripts/sync.py $ALLOW_DROP --report-md "$RUNNER_TEMP/doc-check.md"
+
+      - name: Update the "Recipe doc check" issue
+        if: steps.key.outputs.present == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/update_issue.sh "$RUNNER_TEMP/doc-check.md"
 
       - name: Run the parser tests
         if: steps.key.outputs.present == 'true'

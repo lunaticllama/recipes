@@ -684,6 +684,10 @@ class DocTypos(unittest.TestCase):
         guesses = [p["detail"] for p in result.problems if p["kind"] == "guess"]
         self.assertTrue(any("3," in g for g in guesses), guesses)
 
+    def test_mistyped_step_number_line_is_not_reported_as_dropped(self):
+        result = parse(PUMPKIN_RAVIOLI_NEW)
+        self.assertEqual([p for p in result.problems if p["kind"] == "dropped"], [])
+
     def test_comma_number_in_ingredients_is_not_a_step(self):
         r = one("""
         ## Lentil and Bean Chili

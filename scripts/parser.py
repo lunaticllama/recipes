@@ -565,7 +565,7 @@ def _corpus(recipe):
 def _content_of(line):
     """The part of a line that should appear in the output, or '' for a bare label."""
     p = line.plain
-    if m := STEP.match(p):
+    if m := STEP.match(p) or STEP_TYPO.match(p):
         p = p[m.end():]
     for pat in (ING_LABEL, DIR_LABEL):
         if pat.match(p):
@@ -616,7 +616,7 @@ def parse_document(doc):
     return Result(recipes, problems)
 
 
-KIND_ORDER = ["dropped", "empty-ingredients", "empty-directions", "no-steps", "short",
+KIND_ORDER = ["count-drop", "dropped", "empty-ingredients", "empty-directions", "no-steps", "short",
               "copied-step", "cross-link", "guess"]
 
 
