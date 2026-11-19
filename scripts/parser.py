@@ -115,7 +115,8 @@ def doc_to_lines(doc):
 # --- patterns --------------------------------------------------------------
 
 STEP = re.compile(r"^(\d{1,2})(?:\.\s+|\s+\.\s*)(?=\S)")
-STEP_TYPO = re.compile(r"^(\d{1,2})[,;:]\s+(?=[A-Za-z])")  # "3, Spoon…" typed for "3. Spoon…"
+# In Directions only: "3, Spoon…" or "1 Soften…" typed for "3. Spoon…" / "1. Soften…".
+STEP_TYPO = re.compile(r"^(\d{1,2})(?:[,;:]\s+(?=[A-Za-z])|\s+(?=[A-Z]))")
 ING_LABEL = re.compile(r"^(?:(?P<prefix>(?:\S+\s+){0,5}?\S+)\s+ingredients\s*:|ingredients\s*:?)$", re.I)
 DIR_LABEL = re.compile(r"^(?:(?P<prefix>(?:\S+\s+){0,5}?\S+)\s+(?:directions|instructions)\s*:"
                        r"|(?:directions|instructions)\s*:?)$", re.I)

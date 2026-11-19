@@ -684,6 +684,30 @@ class DocTypos(unittest.TestCase):
         guesses = [p["detail"] for p in result.problems if p["kind"] == "guess"]
         self.assertTrue(any("3," in g for g in guesses), guesses)
 
+    def test_step_number_missing_its_period_is_a_step_and_flagged(self):
+        result = parse("""
+        ## Aunt Kathy's Hot Crab Dip
+        Ingredients:\v1/2 to 1 lb. crab, picked over\v8 oz. cream cheese\v
+        Directions:\v1\tSoften cream cheese and then mix all ingredients together.
+        \v2.\tBake 350° 30 minutes and serve with bread or crackers.
+        """)
+        steps = result.recipes[0]["sections"][0]["steps"]
+        self.assertEqual(steps, ["Soften cream cheese and then mix all ingredients together.",
+                                 "Bake 350° 30 minutes and serve with bread or crackers."])
+        guesses = [p["detail"] for p in result.problems if p["kind"] == "guess"]
+        self.assertTrue(any("“1”" in g for g in guesses), guesses)
+        self.assertEqual([p for p in result.problems if p["kind"] == "dropped"], [])
+
+    def test_unnumbered_direction_starting_with_lowercase_after_number_is_left_alone(self):
+        r = one("""
+        ## Brown Rice (Pressure Cooker)
+        Ingredients:
+        1 cup of brown rice
+        Directions:
+        2 cups of water go in first, then the rice.
+        """)
+        self.assertEqual(r["sections"][0]["steps"], ["2 cups of water go in first, then the rice."])
+
     def test_mistyped_step_number_line_is_not_reported_as_dropped(self):
         result = parse(PUMPKIN_RAVIOLI_NEW)
         self.assertEqual([p for p in result.problems if p["kind"] == "dropped"], [])
