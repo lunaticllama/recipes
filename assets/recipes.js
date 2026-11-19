@@ -26,7 +26,23 @@
     useExtendedSearch: true   // each word must match (fuzzily) somewhere
   }) : null;
 
+  // "#greek" searches tags only: each #term must start one of the recipe's tags
+  // (any case), so "#gr" already finds Greek and "#holidays #christmas" needs both.
+  function searchTags(query) {
+    var terms = query.toLowerCase().split("#").map(function (t) {
+      return t.replace(/\s+/g, " ").trim();
+    }).filter(Boolean);
+    if (!terms.length) return null;
+    return recipes.filter(function (r) {
+      var tags = r.tags.map(function (t) { return t.toLowerCase(); });
+      return terms.every(function (term) {
+        return tags.some(function (t) { return t.indexOf(term) === 0; });
+      });
+    }).sort(function (a, b) { return a.title.localeCompare(b.title); });
+  }
+
   function search(query) {
+    if (query.trim().charAt(0) === "#") return searchTags(query);
     // Drop extended-search operator characters so typed text is always a plain fuzzy search.
     var q = query.replace(/[=!^$'|"]/g, " ").replace(/\s+/g, " ").trim();
     if (q.length < 2) return null;

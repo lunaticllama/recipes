@@ -1,6 +1,6 @@
 # Phil's Recipes: Plan
 
-**Status:** Steps 12 and 13 done. Service account `recipes-sync@phils-recipe.iam.gserviceaccount.com` (project `phils-recipe`) reads the doc; the GitHub secret is set; a manual "Sync recipes" run succeeded; the "Recipe doc check" issue opened (with an email) when a recipe was broken and closed itself when it was fixed (2026-11-19). Still waiting on GitHub's https certificate for "Enforce HTTPS" and the phone test of "Keep screen on". Next: step 14.
+**Status:** Steps 12 and 13 done. Service account `recipes-sync@phils-recipe.iam.gserviceaccount.com` (project `phils-recipe`) reads the doc; the GitHub secret is set; a manual "Sync recipes" run succeeded; the "Recipe doc check" issue opened (with an email) when a recipe was broken and closed itself when it was fixed (2026-11-19). The https certificate is issued and "Enforce HTTPS" is on (http redirects to https), and "Keep screen on" passed the phone test (2026-11-19). Next: step 14.
 
 **Earlier:** Step 2 done (parser, tests and sync script written; `data/recipes.json` built from the real doc, 117 recipes). Step 3 nearly done: Phil fixed the flagged recipes on 2026-11-18 and the report is clean apart from Pasta Carbonara's shared step, which is intentional (goes in `report_ignore.txt` in step 11). Doc now has 118 recipes. Open question: whether Braised Lamb Shanks should get its "Gremolata ingredients:" line back. Next: Step 4.
 
