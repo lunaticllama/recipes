@@ -2181,6 +2181,41 @@
     "tags": []
   },
   {
+    "slug": "leek-gratin",
+    "title": "Leek Gratin",
+    "sections": [
+      {
+        "ingredient_groups": [
+          {
+            "items": [
+              "6-8 medium leeks, white and light-green parts only",
+              "1 ¾ cups heavy cream",
+              "Coarse salt and ground pepper",
+              "⅓ cup grated Gruyere or Pecorino Romano cheese (or a mix)"
+            ]
+          }
+        ],
+        "steps": [
+          "Preheat oven to 375°F. Halve leeks lengthwise, leaving halves attached at root (or cut right at root end), and rinse very, very well, shaking off water.",
+          "In a large skillet, combine cream and leeks; season with salt and pepper. Bring to a boil over medium-high heat; reduce to a medium simmer, cover, and cook 5 minutes. Uncover and simmer until leeks are tender, 15 minutes.",
+          "Transfer leeks and sauce to a shallow 2-quart baking dish. Sprinkle with cheese and bake until golden and bubbling, about 35 minutes. Let gratin rest 10 minutes before serving."
+        ],
+        "notes": []
+      }
+    ],
+    "sources": [
+      {
+        "text": "Leek Gratin Recipe (With Step-by-Step)",
+        "url": "https://www.marthastewart.com/leek-gratin-recipe-11715963"
+      }
+    ],
+    "notes": [],
+    "tags": [
+      "Thanksgiving",
+      "Holidays"
+    ]
+  },
+  {
     "slug": "lemony-lentil-stew",
     "title": "Lemony Lentil Stew",
     "sections": [
