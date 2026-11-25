@@ -12,15 +12,23 @@
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <noscript><style>.az-list[hidden] { display: block !important; } .az-hint { display: none; }</style></noscript>
 </head>
 <body data-root="">
   <header class="site-header">
     <div class="container">
       <h1 class="site-title">Phil’s Recipes</h1>
-      <div class="search">
-        <label for="search" class="search-label">Search recipes by name or ingredient</label>
-        <input id="search" class="search-input" type="search" autocomplete="off" spellcheck="false">
+      <div class="search-row">
+        <div class="search">
+          <label for="search" class="search-label">Search recipes by name or ingredient</label>
+          <input id="search" class="search-input" type="search" autocomplete="off" spellcheck="false">
+        </div>
+        <button type="button" id="surprise" class="btn btn-dark surprise" hidden>
+          <svg class="btn-icon die" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="8" r="1.6" fill="currentColor"/><circle cx="16" cy="8" r="1.6" fill="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="8" cy="16" r="1.6" fill="currentColor"/><circle cx="16" cy="16" r="1.6" fill="currentColor"/></svg>
+          Surprise me
+        </button>
       </div>
+      <p class="ticker" aria-live="polite" hidden></p>
     </div>
   </header>
 
@@ -29,11 +37,25 @@
     <ul class="results-list"></ul>
   </section>
 
+  <section class="pick container" aria-labelledby="pick-title" hidden>
+    <div class="pick-head">
+      <div>
+        <h2 class="pick-title" id="pick-title">Can’t decide?</h2>
+        <p class="pick-sub">Three cards from the box. A new hand every visit.</p>
+      </div>
+      <button type="button" id="shuffle" class="btn">
+        <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Shuffle
+      </button>
+    </div>
+    <ul class="hand" aria-live="polite"></ul>
+  </section>
+
   <main class="container az-page">
     <nav class="az" aria-label="Recipes A to Z">
 {{LETTERS}}
     </nav>
-    <p class="az-hint" hidden>Choose a letter to see its recipes, or search above.</p>
+    <p class="az-hint">Choose a letter to see its recipes, or search above.</p>
 {{LISTS}}
   </main>
 

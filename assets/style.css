@@ -399,3 +399,111 @@ main.az-page { padding-top: 28px; }
   .ingredients { flex: 0 0 2.6in; }
   .ingredient-group { break-inside: avoid; }
 }
+
+/* ---------- Home page: "Surprise me" and the "Can't decide?" cards ---------- */
+
+.search-row { display: flex; gap: 16px; align-items: flex-end; flex-wrap: wrap; }
+.search-row .search { flex: 1 1 320px; min-width: 0; }
+.search-input { width: 100%; }
+
+.btn-icon { width: 18px; height: 18px; flex: 0 0 auto; }
+.btn[disabled] { cursor: progress; }
+.surprise.is-rolling .die { animation: tumble 0.5s linear infinite; }
+@keyframes tumble { to { transform: rotate(360deg); } }
+
+/* The slot-machine line under the search box */
+.ticker { margin: 0; min-height: 30px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.ticker-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.ticker-name { font-family: var(--font-display); font-size: 22px; line-height: 1.2; }
+.ticker.is-spinning .ticker-name { color: var(--muted); }
+.ticker.is-landed .ticker-name { animation: land 0.35s ease-out; }
+@keyframes land { 0% { transform: translateY(-6px); } 60% { transform: translateY(2px); } 100% { transform: none; } }
+
+.pick { padding-top: 12px; }
+.pick-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+.pick-title { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 32px; line-height: 1.1; }
+.pick-sub { margin: 4px 0 0; font-size: 14px; color: var(--muted); }
+
+.hand {
+  list-style: none;
+  margin: 0;
+  padding: 10px 6px 26px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+/* Index cards: cream stock, a burnt-orange rule under the title, faint ruled lines. */
+.card {
+  --card: #fbf8f2;
+  --card-line: #e4dccd;
+  min-width: 0;
+  background: var(--card);
+  border: 1px solid var(--card-line);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04), 0 10px 22px -12px rgba(60, 35, 10, 0.35);
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card:hover, .card:focus-within {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04), 0 18px 30px -14px rgba(60, 35, 10, 0.45);
+}
+.card a { display: flex; flex-direction: column; gap: 14px; height: 100%; padding: 22px 22px 18px; color: var(--ink); text-decoration: none; }
+.card a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.card-title {
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+}
+.card-ing {
+  flex: 1;
+  margin: 0;
+  min-height: 56px;
+  font-size: 15px;
+  line-height: 28px;
+  color: var(--muted);
+  background-image: repeating-linear-gradient(to bottom, transparent 0 27px, var(--card-line) 27px 28px);
+}
+.card-go { align-self: flex-end; font-size: 14px; font-weight: 500; color: var(--accent); }
+
+.card.deal-in { animation: deal-in 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.15) both; animation-delay: var(--delay, 0ms); }
+.card.deal-out { animation: deal-out 0.32s ease-in forwards; animation-delay: var(--delay, 0ms); }
+@keyframes deal-in {
+  from { opacity: 0; transform: translate(-40px, -70px) rotate(-14deg); }
+  to { opacity: 1; transform: rotate(var(--tilt, 0deg)); }
+}
+@keyframes deal-out { to { opacity: 0; transform: translateY(30px) rotate(calc(var(--tilt, 0deg) * 3)); } }
+
+/* Phones: the hand becomes a row you swipe through. */
+@media (max-width: 720px) {
+  .hand {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 18px;
+    margin-left: -6px;
+    margin-right: -6px;
+  }
+  .card { flex: 0 0 78%; scroll-snap-align: center; }
+  .search-row .surprise { width: 100%; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card, .card:hover, .card:focus-within { transition: none; }
+  .card.deal-in, .card.deal-out, .surprise.is-rolling .die, .ticker.is-landed .ticker-name { animation: none; }
+}
+
+@media print {
+  .pick, .surprise, .ticker { display: none; }
+}

@@ -40,14 +40,71 @@ def select(recipes, slugs):
     return [r for r in recipes if r["slug"] in set(slugs)]
 
 
+# --- key ingredients (for the home page's recipe cards) --------------------
+
+# Pantry basics that say nothing about a dish; an ingredient line mentioning any is skipped.
+_STAPLES = re.compile(
+    r"\b(salt|pepper|water|oil|butter|sugar|flour|garlic|onions?|to taste|ice|"
+    r"baking (soda|powder)|yeast|dried \w+|ground \w+|paprika|cumin|cinnamon|vanilla|"
+    r"soy sauce|vinegar|eggs?|yolks?|stock|broth|milk|juice|zest|sauce|seasoning|"
+    r"mayonnaise|cornstarch|optional|see recipe|sat|fat)\b", re.I)
+_QUANTITY = re.compile(r"^(?:[\d½¼¾⅓⅔⅛.,/\-–+]+|and|to|or|a|an|about|of|half|couple|each)\b\s*", re.I)
+_UNIT = re.compile(
+    r"^(?:cups?|c\.|tbsps?\.?|tbs\.?|tablespoons?|tsps?\.?|teaspoons?|lbs?\.?|pounds?|oz\.?|ounces?|"
+    r"grams?|g|kg|ml|l|quarts?|qt|pints?|cans?|cloves?|large|medium|small|bunch(?:es)?|pinch(?:es)?|"
+    r"dash(?:es)?|sticks?|packages?|pkg|packets?|jars?|heads?|handfuls?|slices?|pieces?|links?|knobs?|"
+    r"bricks?|bottles?|blocks?|splash|sprigs?|ribs?|stalks?|bulbs?|tops?|"
+    r"inch(?:es)?|\")\b\.?\s*(?:of\s+)?", re.I)
+_DESCRIPTOR = re.compile(
+    r"^(?:fresh|freshly|chopped|minced|diced|lean|extra[- ]firm|finely|thinly sliced|"
+    r"skinless|boneless|tightly-packed|very)\b\s*(?:,|and)?\s*", re.I)
+# Trailing amounts and hedges: "honey about 1 tbsp", "chili flakes or more", "sage leaves or".
+_TAIL = re.compile(r"\s+(?:about\b.*|or more|or to taste|or|"
+                   r"(?:peeled|chopped|sliced|diced|minced)(?: and \w+)?)$", re.I)
+# A lone adjective left over when a comma split the name ("shredded, Mexican cheese").
+_LONE_ADJECTIVE = {"prepared", "white", "red", "shredded", "grated", "cooked", "sliced", "whole", "dry"}
+
+
+def key_ingredient(item):
+    """The ingredient in one line, without amounts or prep notes, or None for a staple."""
+    text = re.sub(r"\(.*?\)", " ", plain_text(item))
+    text = re.sub(r"\s+", " ", text).strip()
+    while True:
+        before = text
+        for pattern in (_QUANTITY, _UNIT, _DESCRIPTOR):
+            text = pattern.sub("", text).strip()
+        text = re.sub(r"^[^\w]+", "", text)
+        if text == before:
+            break
+    # Prep notes follow the first comma ("crab, picked over").
+    text = _TAIL.sub("", text.split(",")[0]).lower().rstrip(" .:;")
+    if not text or len(text) > 30 or text in _LONE_ADJECTIVE or _STAPLES.search(text):
+        return None
+    return text
+
+
+def key_ingredients(items, limit=3):
+    picks = []
+    for item in items:
+        name = key_ingredient(item)
+        if name and name not in picks:
+            picks.append(name)
+            if len(picks) == limit:
+                break
+    return picks
+
+
 # --- search index ----------------------------------------------------------
 
 def search_entries(recipes):
-    return [{"title": r["title"], "slug": r["slug"],
-             "ingredients": [plain_text(i) for s in r["sections"]
-                             for g in s["ingredient_groups"] for i in g["items"]],
-             "tags": r.get("tags", [])}
-            for r in recipes]
+    entries = []
+    for r in recipes:
+        items = [i for s in r["sections"] for g in s["ingredient_groups"] for i in g["items"]]
+        entries.append({"title": r["title"], "slug": r["slug"],
+                        "ingredients": [plain_text(i) for i in items],
+                        "tags": r.get("tags", []),
+                        "key": key_ingredients(items)})
+    return entries
 
 
 def search_index_js(recipes):
@@ -93,7 +150,7 @@ def render_index(recipes):
     for letter, rs in groups.items():
         items = "\n".join(f'        <li><a href="recipes/{esc(r["slug"])}.html">{esc(r["title"])}</a></li>'
                           for r in rs)
-        lists.append(f'    <section class="az-list" id="letter-{letter}" aria-label="Recipes starting with {letter}">\n'
+        lists.append(f'    <section class="az-list" id="letter-{letter}" aria-label="Recipes starting with {letter}" hidden>\n'
                      f'      <h2 class="az-heading">{letter}</h2>\n'
                      f'      <ul class="results-list">\n{items}\n      </ul>\n    </section>')
     with open(os.path.join(TEMPLATES, "index.html"), encoding="utf-8") as f:

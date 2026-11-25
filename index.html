@@ -12,21 +12,43 @@
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <noscript><style>.az-list[hidden] { display: block !important; } .az-hint { display: none; }</style></noscript>
 </head>
 <body data-root="">
   <header class="site-header">
     <div class="container">
       <h1 class="site-title">Phil’s Recipes</h1>
-      <div class="search">
-        <label for="search" class="search-label">Search recipes by name or ingredient</label>
-        <input id="search" class="search-input" type="search" autocomplete="off" spellcheck="false">
+      <div class="search-row">
+        <div class="search">
+          <label for="search" class="search-label">Search recipes by name or ingredient</label>
+          <input id="search" class="search-input" type="search" autocomplete="off" spellcheck="false">
+        </div>
+        <button type="button" id="surprise" class="btn btn-dark surprise" hidden>
+          <svg class="btn-icon die" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="8" r="1.6" fill="currentColor"/><circle cx="16" cy="8" r="1.6" fill="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="8" cy="16" r="1.6" fill="currentColor"/><circle cx="16" cy="16" r="1.6" fill="currentColor"/></svg>
+          Surprise me
+        </button>
       </div>
+      <p class="ticker" aria-live="polite" hidden></p>
     </div>
   </header>
 
   <section class="results container" aria-label="Search results" aria-live="polite" hidden>
     <p class="results-count"></p>
     <ul class="results-list"></ul>
+  </section>
+
+  <section class="pick container" aria-labelledby="pick-title" hidden>
+    <div class="pick-head">
+      <div>
+        <h2 class="pick-title" id="pick-title">Can’t decide?</h2>
+        <p class="pick-sub">Three cards from the box. A new hand every visit.</p>
+      </div>
+      <button type="button" id="shuffle" class="btn">
+        <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Shuffle
+      </button>
+    </div>
+    <ul class="hand" aria-live="polite"></ul>
   </section>
 
   <main class="container az-page">
@@ -58,8 +80,8 @@
       <button type="button" class="az-letter" data-letter="Y" aria-pressed="false" aria-controls="letter-Y">Y</button>
       <button type="button" class="az-letter" data-letter="Z" aria-pressed="false" aria-controls="letter-Z">Z</button>
     </nav>
-    <p class="az-hint" hidden>Choose a letter to see its recipes, or search above.</p>
-    <section class="az-list" id="letter-A" aria-label="Recipes starting with A">
+    <p class="az-hint">Choose a letter to see its recipes, or search above.</p>
+    <section class="az-list" id="letter-A" aria-label="Recipes starting with A" hidden>
       <h2 class="az-heading">A</h2>
       <ul class="results-list">
         <li><a href="recipes/adana-kebab.html">Adana Kebab</a></li>
@@ -68,7 +90,7 @@
         <li><a href="recipes/aunt-marys-chicken-tenders.html">Aunt Mary’s Chicken Tenders</a></li>
       </ul>
     </section>
-    <section class="az-list" id="letter-B" aria-label="Recipes starting with B">
+    <section class="az-list" id="letter-B" aria-label="Recipes starting with B" hidden>
       <h2 class="az-heading">B</h2>
       <ul class="results-list">
         <li><a href="recipes/baguettes.html">Baguettes</a></li>
@@ -83,7 +105,7 @@
         <li><a href="recipes/brown-rice-pressure-cooker.html">Brown Rice (Pressure Cooker)</a></li>
       </ul>
     </section>
-    <section class="az-list" id="letter-C" aria-label="Recipes starting with C">
+    <section class="az-list" id="letter-C" aria-label="Recipes starting with C" hidden>
       <h2 class="az-heading">C</h2>
       <ul class="results-list">
         <li><a href="recipes/cabbage-slaw-for-fritters-pancakes-and-tacos.html">Cabbage Slaw (For Fritters, Pancakes and Tacos)</a></li>
@@ -102,20 +124,20 @@
         <li><a href="recipes/crunchy-fried-fish.html">Crunchy Fried Fish</a></li>
       </ul>
     </section>
-    <section class="az-list" id="letter-D" aria-label="Recipes starting with D">
+    <section class="az-list" id="letter-D" aria-label="Recipes starting with D" hidden>
       <h2 class="az-heading">D</h2>
       <ul class="results-list">
         <li><a href="recipes/dumpling-sauce.html">Dumpling Sauce</a></li>
       </ul>
     </section>
-    <section class="az-list" id="letter-E" aria-label="Recipes starting with E">
+    <section class="az-list" id="letter-E" aria-label="Recipes starting with E" hidden>
       <h2 class="az-heading">E</h2>
       <ul class="results-list">
         <li><a href="recipes/eggplant-stuffed-with-haloumi.html">Eggplant Stuffed with Haloumi</a></li>
         <li><a href="recipes/elizabeths-cheeseburger-pasta-casserole.html">Elizabeth’s Cheeseburger Pasta Casserole</a></li>
       </ul>
     </section>
-    <section class="az-list" id="letter-F" aria-label="Recipes starting with F">
+    <section class="az-list" id="letter-F" aria-label="Recipes starting with F" hidden>
       <h2 class="az-heading">F</h2>
       <ul class="results-list">
         <li><a href="recipes/falafel.html">Falafel</a></li>
@@ -124,7 +146,7 @@
         <li><a href="recipes/fresh-egg-pasta-dough.html">Fresh Egg Pasta Dough</a></li>
       </ul>
     </section>
-    <section class="az-list" id="letter-G" aria-label="Recipes starting with G">
+    <section class="az-list" id="letter-G" aria-label="Recipes starting with G" hidden>
       <h2 class="az-heading">G</h2>
       <ul class="results-list">
         <li><a href="recipes/garlic-soup.html">Garlic Soup</a></li>
@@ -136,27 +158,27 @@
         <li><a href="recipes/greek-salad-with-broccoli-and-sun-dried-tomatoes.html">Greek Salad with Broccoli and Sun-Dried Tomatoes</a></li>
       </ul>
     </section>
-    <section class="az-list" id="letter-H" aria-label="Recipes starting with H">
+    <section class="az-list" id="letter-H" aria-label="Recipes starting with H" hidden>
       <h2 class="az-heading">H</h2>
       <ul class="results-list">
         <li><a href="recipes/habanero-hot-sauce.html">Habanero Hot Sauce</a></li>
         <li><a href="recipes/hasselback-potato-gratin.html">Hasselback Potato Gratin</a></li>
       </ul>
     </section>
-    <section class="az-list" id="letter-I" aria-label="Recipes starting with I">
+    <section class="az-list" id="letter-I" aria-label="Recipes starting with I" hidden>
       <h2 class="az-heading">I</h2>
       <ul class="results-list">
         <li><a href="recipes/italian-sausage.html">Italian Sausage</a></li>
       </ul>
     </section>
-    <section class="az-list" id="letter-J" aria-label="Recipes starting with J">
+    <section class="az-list" id="letter-J" aria-label="Recipes starting with J" hidden>
       <h2 class="az-heading">J</h2>
       <ul class="results-list">
         <li><a href="recipes/jamaican-oxtails.html">Jamaican Oxtails</a></li>
         <li><a href="recipes/jerk-chicken.html">Jerk Chicken</a></li>
       </ul>
     </section>
-    <section class="az-list" id="letter-K" aria-label="Recipes starting with K">
+    <section class="az-list" id="letter-K" aria-label="Recipes starting with K" hidden>
       <h2 class="az-heading">K</h2>
       <ul class="results-list">
         <li><a href="recipes/kale-caesar-salad.html">Kale Caesar Salad</a></li>
@@ -167,7 +189,7 @@
         <li><a href="recipes/korean-spicy-beef-soup.html">Korean Spicy Beef Soup</a></li>
       </ul>
     </section>
-    <section class="az-list" id="letter-L" aria-label="Recipes starting with L">
+    <section class="az-list" id="letter-L" aria-label="Recipes starting with L" hidden>
       <h2 class="az-heading">L</h2>
       <ul class="results-list">
         <li><a href="recipes/lamb-beet-pot-pie.html">Lamb &amp; Beet Pot Pie</a></li>
@@ -178,7 +200,7 @@
         <li><a href="recipes/lentil-soup-phils-italian-lentil-soup.html">Lentil Soup (Phil’s Italian Lentil Soup)</a></li>
       </ul>
     </section>
-    <section class="az-list" id="letter-M" aria-label="Recipes starting with M">
+    <section class="az-list" id="letter-M" aria-label="Recipes starting with M" hidden>
       <h2 class="az-heading">M</h2>
       <ul class="results-list">
         <li><a href="recipes/mapo-tofu-vegan.html">Mapo Tofu (Vegan)</a></li>
@@ -190,7 +212,7 @@
         <li><a href="recipes/mushroom-bourguignon.html">Mushroom Bourguignon</a></li>
       </ul>
     </section>
-    <section class="az-list" id="letter-P" aria-label="Recipes starting with P">
+    <section class="az-list" id="letter-P" aria-label="Recipes starting with P" hidden>
       <h2 class="az-heading">P</h2>
       <ul class="results-list">
         <li><a href="recipes/pad-see-ew-vegan-or-not.html">Pad See Ew (Vegan or not)</a></li>
@@ -221,14 +243,14 @@
         <li><a href="recipes/pumpkin-waffles.html">Pumpkin Waffles</a></li>
       </ul>
     </section>
-    <section class="az-list" id="letter-Q" aria-label="Recipes starting with Q">
+    <section class="az-list" id="letter-Q" aria-label="Recipes starting with Q" hidden>
       <h2 class="az-heading">Q</h2>
       <ul class="results-list">
         <li><a href="recipes/quesadillas-several-types.html">Quesadillas, Several Types</a></li>
         <li><a href="recipes/quinoa-bean-mexican-casserole.html">Quinoa Bean Mexican Casserole</a></li>
       </ul>
     </section>
-    <section class="az-list" id="letter-R" aria-label="Recipes starting with R">
+    <section class="az-list" id="letter-R" aria-label="Recipes starting with R" hidden>
       <h2 class="az-heading">R</h2>
       <ul class="results-list">
         <li><a href="recipes/rasta-pasta.html">Rasta Pasta</a></li>
@@ -236,7 +258,7 @@
         <li><a href="recipes/roasted-cauliflower-kale-salad.html">Roasted Cauliflower Kale Salad</a></li>
       </ul>
     </section>
-    <section class="az-list" id="letter-S" aria-label="Recipes starting with S">
+    <section class="az-list" id="letter-S" aria-label="Recipes starting with S" hidden>
       <h2 class="az-heading">S</h2>
       <ul class="results-list">
         <li><a href="recipes/sardine-salad.html">Sardine Salad</a></li>
@@ -250,7 +272,7 @@
         <li><a href="recipes/stifado.html">Stifado</a></li>
       </ul>
     </section>
-    <section class="az-list" id="letter-T" aria-label="Recipes starting with T">
+    <section class="az-list" id="letter-T" aria-label="Recipes starting with T" hidden>
       <h2 class="az-heading">T</h2>
       <ul class="results-list">
         <li><a href="recipes/taiwanese-spicy-beef-soup.html">Taiwanese Spicy Beef Soup</a></li>
@@ -264,26 +286,26 @@
         <li><a href="recipes/tzatziki.html">Tzatziki</a></li>
       </ul>
     </section>
-    <section class="az-list" id="letter-V" aria-label="Recipes starting with V">
+    <section class="az-list" id="letter-V" aria-label="Recipes starting with V" hidden>
       <h2 class="az-heading">V</h2>
       <ul class="results-list">
         <li><a href="recipes/veggie-rojo-enchiladas.html">Veggie Rojo Enchiladas</a></li>
       </ul>
     </section>
-    <section class="az-list" id="letter-W" aria-label="Recipes starting with W">
+    <section class="az-list" id="letter-W" aria-label="Recipes starting with W" hidden>
       <h2 class="az-heading">W</h2>
       <ul class="results-list">
         <li><a href="recipes/watermelon-salad.html">Watermelon Salad</a></li>
         <li><a href="recipes/white-bean-and-escarole-soup.html">White Bean and Escarole Soup</a></li>
       </ul>
     </section>
-    <section class="az-list" id="letter-Y" aria-label="Recipes starting with Y">
+    <section class="az-list" id="letter-Y" aria-label="Recipes starting with Y" hidden>
       <h2 class="az-heading">Y</h2>
       <ul class="results-list">
         <li><a href="recipes/yucatan-shrimp.html">Yucatan Shrimp</a></li>
       </ul>
     </section>
-    <section class="az-list" id="letter-Z" aria-label="Recipes starting with Z">
+    <section class="az-list" id="letter-Z" aria-label="Recipes starting with Z" hidden>
       <h2 class="az-heading">Z</h2>
       <ul class="results-list">
         <li><a href="recipes/zucchini-fritters-vegan-or-not.html">Zucchini Fritters (vegan or not)</a></li>

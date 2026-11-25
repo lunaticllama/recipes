@@ -59,6 +59,7 @@
   var input = document.getElementById("search");
   var results = document.querySelector(".results");
   var azPage = document.querySelector(".az-page");
+  var pickSection = document.querySelector(".pick");
   var lastMatches = [];
 
   function showResults(matches) {
@@ -84,14 +85,12 @@
   function onInput() {
     var matches = search(input.value);
     lastMatches = matches || [];
-    if (matches === null) {
-      results.hidden = true;
-      if (azPage) azPage.hidden = false;
-      return;
-    }
-    showResults(matches);
-    results.hidden = false;
-    if (azPage) azPage.hidden = true;
+    var searching = matches !== null;
+    if (searching) showResults(matches);
+    results.hidden = !searching;
+    if (azPage) azPage.hidden = searching;
+    // The "Can't decide?" cards step aside while a search is showing.
+    if (pickSection && recipes.length) pickSection.hidden = searching;
   }
 
   if (input && results) {
@@ -136,6 +135,123 @@
     });
     var fromHash = decodeURIComponent(window.location.hash.slice(1));
     pick(fromHash);
+  }
+
+  // ---------- "Can't decide?" cards and "Surprise me" (home page) ----------
+
+  var reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function shuffled(list) {
+    var a = list.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  var hand = document.querySelector(".hand");
+  var shuffleBtn = document.getElementById("shuffle");
+  var dealt = [];
+
+  function makeCard(r, k) {
+    var li = document.createElement("li");
+    li.className = "card";
+    // A slight random tilt, -3° to 3°, so the hand looks dealt by hand.
+    li.style.setProperty("--tilt", (Math.random() * 6 - 3).toFixed(1) + "deg");
+    li.style.setProperty("--delay", k * 110 + "ms");
+    var a = document.createElement("a");
+    a.href = href(r.slug);
+    var h = document.createElement("h3");
+    h.className = "card-title";
+    h.textContent = r.title;
+    var p = document.createElement("p");
+    p.className = "card-ing";
+    p.textContent = (r.key || []).join(" · ");
+    var go = document.createElement("span");
+    go.className = "card-go";
+    go.textContent = "Open recipe →";
+    a.appendChild(h); a.appendChild(p); a.appendChild(go);
+    li.appendChild(a);
+    return li;
+  }
+
+  function deal(animate) {
+    // Never deal a card that was in the last hand, when there are enough recipes.
+    var last = dealt.map(function (r) { return r.slug; });
+    var pool = recipes.filter(function (r) { return last.indexOf(r.slug) === -1; });
+    if (pool.length < 3) pool = recipes;
+    dealt = shuffled(pool).slice(0, 3);
+    hand.textContent = "";
+    dealt.forEach(function (r, k) {
+      var card = makeCard(r, k);
+      if (animate && !reducedMotion) card.classList.add("deal-in");
+      hand.appendChild(card);
+    });
+  }
+
+  if (hand && pickSection && recipes.length) {
+    if (!(input && input.value)) pickSection.hidden = false;
+    deal(true);
+    shuffleBtn.addEventListener("click", function () {
+      if (reducedMotion) { deal(false); return; }
+      shuffleBtn.disabled = true;
+      Array.prototype.forEach.call(hand.children, function (c, k) {
+        c.style.setProperty("--delay", k * 70 + "ms");
+        c.classList.remove("deal-in");
+        c.classList.add("deal-out");
+      });
+      setTimeout(function () {
+        deal(true);
+        setTimeout(function () { shuffleBtn.disabled = false; }, 700);
+      }, 480);
+    });
+  }
+
+  var surprise = document.getElementById("surprise");
+  var ticker = document.querySelector(".ticker");
+
+  function resetSurprise() {
+    surprise.disabled = false;
+    surprise.classList.remove("is-rolling");
+    ticker.hidden = true;
+    ticker.textContent = "";
+  }
+
+  if (surprise && ticker && recipes.length) {
+    surprise.hidden = false;
+    surprise.addEventListener("click", function () {
+      var chosen = recipes[Math.floor(Math.random() * recipes.length)];
+      if (reducedMotion) { window.location.href = href(chosen.slug); return; }
+      surprise.disabled = true;
+      surprise.classList.add("is-rolling");
+      ticker.textContent = "";
+      ticker.className = "ticker is-spinning";
+      var label = document.createElement("span");
+      label.className = "ticker-label";
+      label.textContent = "Rolling";
+      var name = document.createElement("span");
+      name.className = "ticker-name";
+      ticker.appendChild(label);
+      ticker.appendChild(name);
+      ticker.hidden = false;
+      // Each delay is longer than the last, so the names slow down before landing (about 1.3 s).
+      var delays = [60, 60, 65, 70, 80, 90, 105, 125, 150, 185, 230];
+      var i = 0;
+      (function step() {
+        if (i < delays.length) {
+          name.textContent = recipes[Math.floor(Math.random() * recipes.length)].title;
+          setTimeout(step, delays[i++]);
+          return;
+        }
+        name.textContent = chosen.title;
+        label.textContent = "Tonight";
+        ticker.className = "ticker is-landed";
+        setTimeout(function () { window.location.href = href(chosen.slug); }, 700);
+      })();
+    });
+    // Coming Back from the recipe can restore this page mid-roll; start it fresh.
+    window.addEventListener("pageshow", function (e) { if (e.persisted) resetSurprise(); });
   }
 
   // ---------- recipe page buttons ----------

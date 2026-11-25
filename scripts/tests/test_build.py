@@ -38,7 +38,14 @@ class SearchIndex(unittest.TestCase):
         entries = build.search_entries([PORK])
         self.assertEqual(entries, [{
             "title": "Pulled Pork", "slug": "pulled-pork",
-            "ingredients": ["Traditional “Sweet and Tangy” BBQ Sauce (see recipe)"], "tags": []}])
+            "ingredients": ["Traditional “Sweet and Tangy” BBQ Sauce (see recipe)"], "tags": [],
+            "key": []}])
+
+    def test_entries_have_key_ingredients(self):
+        crab = recipe("Crab Dip", "crab-dip", [section(
+            ["1/2 to 1 lb. crab, picked over", "8 oz. cream cheese", "Salt", "1/2 cup sour cream",
+             "1/2 cup cheddar cheese, shredded"])])
+        self.assertEqual(build.search_entries([crab])[0]["key"], ["crab", "cream cheese", "sour cream"])
 
     def test_tags_are_included(self):
         tagged = dict(ADANA, tags=["thanksgiving", "side dish"])
@@ -53,6 +60,39 @@ class SearchIndex(unittest.TestCase):
         self.assertTrue(js.startswith("window.RECIPES = "))
         data = json.loads(js[len("window.RECIPES = "):].rstrip().rstrip(";"))
         self.assertEqual(data[0]["slug"], "adana-kebab")
+
+
+class KeyIngredients(unittest.TestCase):
+    def test_quantities_units_and_notes_are_dropped(self):
+        cases = {
+            "1/2 to 1 lb. crab, picked over": "crab",
+            "8 oz. cream cheese": "cream cheese",
+            "2 and 1/3 cups shredded mozzarella cheese": "shredded mozzarella cheese",
+            "1½ cups dry chickpeas": "dry chickpeas",
+            "1 (14 oz) can whole San Marzano tomatoes": "whole san marzano tomatoes",
+            "2 links chorizo, sliced": "chorizo",
+            "A handful of fresh mint, minced": "mint",
+            "1 Lb of skinless, boneless chicken breasts, chopped": "chicken breasts",
+            "1 brick of cream cheese, softened": "cream cheese",
+            "3 ribs of celery": "celery",
+            "Honey about 1 tbsp": "honey",
+            "Sage leaves or": "sage leaves",
+            "2 carrots peeled and chopped": "carrots",
+            "1 cup shredded, Mexican-blend cheese": None,
+            "4 cloves garlic": None,
+            "Kosher salt": None,
+            "2 tbs extra-virgin olive oil": None,
+            "1 tsp ground cumin": None,
+            "Juice of 1 lemon": None,
+            "": None,
+        }
+        for item, want in cases.items():
+            with self.subTest(item=item):
+                self.assertEqual(build.key_ingredient(item), want)
+
+    def test_at_most_three_without_repeats(self):
+        items = ["1 lb shrimp", "Salt", "2 lbs shrimp", "1 cup rice", "1 lemon", "1 bunch parsley"]
+        self.assertEqual(build.key_ingredients(items), ["shrimp", "rice", "lemon"])
 
 
 class Letters(unittest.TestCase):
@@ -93,6 +133,21 @@ class IndexPage(unittest.TestCase):
 
     def test_no_placeholders_left(self):
         self.assertNotIn("{{", self.html)
+
+    def test_letter_lists_start_hidden_and_hint_shows(self):
+        sections = re.findall(r'<section class="az-list"[^>]*>', self.html)
+        self.assertEqual(len(sections), 4)
+        for tag in sections:
+            self.assertIn(" hidden", tag)
+        self.assertRegex(self.html, r'<p class="az-hint">')
+        # Without JavaScript the lists can't be opened, so show them all.
+        self.assertRegex(self.html, r'<noscript>.*\.az-list.*</noscript>')
+
+    def test_surprise_button_and_card_hand(self):
+        self.assertRegex(self.html, r'<button[^>]*id="surprise"[^>]*hidden')
+        self.assertRegex(self.html, r'<section[^>]*class="pick[^"]*"[^>]*hidden')
+        self.assertIn('id="shuffle"', self.html)
+        self.assertIn('class="hand"', self.html)
 
 
 class OnlySubset(unittest.TestCase):
