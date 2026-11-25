@@ -231,13 +231,17 @@ class RecipePage(unittest.TestCase):
         r = dict(FULL, tags=["Thanksgiving", "Holidays & Feasts"])
         footer = build.render_recipe(r, set()).split('class="recipe-foot"')[1]
         meta = footer.split('<section class="recipe-meta">')[1].split("</section>")[0]
-        self.assertIn('<p class="tag-line">Tags: #Thanksgiving, #Holidays &amp; Feasts</p>', meta)
+        self.assertIn('<p class="tag-line">Tags: '
+                      '<a href="../index.html?q=%23Thanksgiving">#Thanksgiving</a>, '
+                      '<a href="../index.html?q=%23Holidays%20%26%20Feasts">#Holidays &amp; Feasts</a></p>',
+                      meta)
         self.assertLess(meta.index("tag-line"), meta.index("source-line"))
         self.assertNotIn("<h3", meta)
 
     def test_single_tag_line(self):
         r = dict(FULL, tags=["Greek"])
-        self.assertIn('<p class="tag-line">Tag: #Greek</p>', build.render_recipe(r, set()))
+        self.assertIn('<p class="tag-line">Tag: <a href="../index.html?q=%23Greek">#Greek</a></p>',
+                      build.render_recipe(r, set()))
 
     def test_no_tags_no_tag_line(self):
         html = build.render_recipe(FULL, set())
@@ -248,7 +252,7 @@ class RecipePage(unittest.TestCase):
         r = dict(FULL, tags=["Greek"], sources=[], notes=[])
         html = build.render_recipe(r, set())
         self.assertIn('<footer class="recipe-foot">', html)
-        self.assertIn("Tag: #Greek", html)
+        self.assertIn('Tag: <a href="../index.html?q=%23Greek">#Greek</a>', html)
         self.assertNotIn("source-line", html)
 
     def test_buttons(self):

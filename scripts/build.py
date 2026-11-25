@@ -17,6 +17,7 @@ import re
 import string
 import sys
 import unicodedata
+from urllib.parse import quote
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from parser import MD_LINK, plain_text  # noqa: E402
@@ -189,10 +190,12 @@ def _footer_html(recipe, built):
     sources = recipe["sources"]
     if tags or sources:
         parts.append('      <section class="recipe-meta">')
-        # One plain line each: "Tags: #Thanksgiving, #Holidays" then "Source: <link>".
+        # One plain line each: "Tags: #Thanksgiving, #Holidays" (each a link) then "Source: <link>".
         if tags:
             label = "Tag" if len(tags) == 1 else "Tags"
-            listed = ", ".join("#" + esc(t) for t in tags)
+            # Each tag links to the home page's tag search for it ("?q=#Greek").
+            listed = ", ".join(
+                f'<a href="../index.html?q={quote("#" + t, safe="")}">#{esc(t)}</a>' for t in tags)
             parts.append(f'        <p class="tag-line">{label}: {listed}</p>')
         if sources:
             label = "Source" if len(sources) == 1 else "Sources"

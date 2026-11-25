@@ -101,7 +101,10 @@
         window.location.href = href(lastMatches[0].slug);
       }
     });
-    if (input.value) onInput();  // e.g. text restored by the browser's back button
+    // A tag link on a recipe page opens "index.html?q=#Greek": start with that search.
+    var fromQuery = new URLSearchParams(window.location.search).get("q");
+    if (fromQuery && !input.value) input.value = fromQuery;
+    if (input.value) onInput();  // also text restored by the browser's back button
   }
 
   // ---------- A–Z ----------
